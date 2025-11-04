@@ -1,0 +1,50 @@
+﻿Estrategia Sitio Web URUSport SUMMIT 2026
+Este documento define la estrategia central que guiará el desarrollo y diseño del sitio web de URUSport SUMMIT. El objetivo no es crear un simple "folleto de evento", sino construir nuestra principal herramienta de ventas B2B: una plataforma de inversión estratégica. Para esta etapa temprana del evento y del sitio web se decide enfocar esfuerzos en captar leads para fortalecer la marca.
+El propósito es claro: captar sponsors de alto valor y posicionar a URUSport como el "hub regional" indiscutido del deporte y la innovación.
+Para lograrlo, cada decisión de diseño, contenido y funcionalidad se evaluará contra 5 Principios Rectores. Esta estrategia asegura que el sitio web funcione como un funnel de persuasión enfocado, que prioriza la credibilidad, demuestra el ROI para los socios y facilita la conversión de sponsors.
+2. El Principio Rector: De "Evento" a "Plataforma de Inversión"
+Esta es la mentalidad que debe guiar cada decisión:
+* No vendemos un stand: Vendemos acceso estratégico al ecosistema deportivo más completo del país (clubes, federaciones, empresas, gobierno).
+* No vendemos visibilidad: Vendemos alineación de marca con valores de futuro: innovación, comunidad, salud y profesionalismo.
+* La Audiencia no son "Asistentes": Son el activo principal que ofrecemos a nuestros socios (+1.000 líderes y tomadores de decisiones).
+3. Pilares Estratégicos para la Toma de Decisiones
+Usaremos estos 5 pilares para evaluar cualquier decisión de diseño, layout o funcionalidad.
+Pilar 1: El Tono Visual: "Líder Innovador de Élite"
+El diseño debe ser una extensión de nuestra marca: profesional, premium e innovador.
+* Pauta de Decisión: ¿Esto se siente como una marca de tecnología deportiva de alto rendimiento (ej. Fórmula 1, Red Bull Media House) o como un evento local genérico? Solo lo primero será aprobado.
+* Línea a Seguir:
+   * Diseño "Innovación Deportiva": Limpio, audaz y tecnológico. Debe reflejar el profesionalismo y la pasión del deporte.
+   * Jerarquía de Valor: El diseño guiará el ojo del sponsor a nuestros "trofeos" primero: logos de socios clave (como el Comité Olímpico Uruguayo) y rostros de embajadores (como Sebastián Coates o Chris Namús).
+   * Fotografía de Conexión: Imágenes que prueben la existencia del "hub": networking de valor, innovación en acción y la energía de la gestión deportiva.
+Pilar 2: La Arquitectura de la Persuasión: "El Viaje del Sponsor"
+El sitio no está diseñado para un asistente, sino para un Gerente de Marketing o CEO que evalúa una inversión.
+* Pauta de Decisión: ¿Estamos guiando al sponsor por un camino lógico que responda sus dudas y demuestre el ROI?
+* Línea a Seguir (El Funnel del Sponsor):
+   1. Credibilidad Instantánea: Prueba social visible de inmediato (Logos y Embajadores).
+   2. Definición del "Hub": Mostrar la confluencia de clubes, federaciones y empresas.
+   3. Valor de la Audiencia: El "por qué" (+1.000 asistentes presenciales, tomadores de decisiones).
+   4. La Visión: Posicionamiento como "hub regional" y la profesionalización del deporte.
+   5. La Oferta: Paquetes de sponsorship claros (Presenter, Premium, etc.).
+   6. La Conversión: Un llamado a la acción simple.
+Pilar 3: El Llamado a la Acción (CTA): "Bajo Roce, Alta Conversión"
+En una venta B2B de alto valor, el objetivo no es "vender online", es "iniciar una conversación".
+* Pauta de Decisión: ¿Estamos pidiendo al sponsor que "Compre Ahora" (alta fricción) o que "Agende una Reunión" (baja fricción)?
+* Línea a Seguir:
+   * CTA Principal (Global): El botón más prominente del sitio será "Agendar una reunión" o "Contacto Estratégico".
+   * Captura de Leads: Se implementará un CTA secundario (ej. "Descargar Media Kit") para capturar contactos interesados.
+   * Optimización: El proceso de contacto (formulario o Calendly) será impecable, rápido y simple.
+Pilar 4: La Estrategia de SEO: "El Hub Permanente"
+El sitio no debe "morir" después del SUMMIT 2026. Debe convertirse en la autoridad digital permanente sobre el tema.
+* Pauta de Decisión: ¿Estamos construyendo valor de marca a largo plazo o solo promocionando un evento puntual?
+* Línea a Seguir:
+   * Keywords Conceptuales: El SEO se centrará en términos que nos posicionan como líderes de pensamiento: "innovación y modernización del deporte", "marca país y liderazgo sectorial", "ecosistema deportivo uruguay".
+   * Contenido "Evergreen": El sitio se estructurará para albergar contenido relevante todo el año (noticias, entrevistas, informes), reforzando la idea del "hub".
+Pilar 5: Desarrollo y Tecnología: "El Rendimiento es Profesionalismo"
+Un sitio lento o que funciona mal en móviles daña nuestra credibilidad premium.
+* Pauta de Decisión: ¿Nuestra tecnología refuerza nuestra imagen de "innovación" o la contradice?
+* Línea a Seguir:
+   * Mobile-First (Real): La experiencia en el móvil de un ejecutivo será impecable.
+   * Velocidad de Carga: Instantánea. La velocidad es una característica de profesionalismo.
+   * Plataforma Confiable: Se usará un CMS (Gestor de Contenidos) robusto que permita al equipo de URUSport actualizar sponsors y contenido fácilmente, sin comprometer el diseño.
+4. Resumen de la Estrategia
+Para la toma de decisiones: Priorizaremos siempre la claridad, la credibilidad y la facilidad de contacto para el sponsor por encima de cualquier otro elemento de diseño o contenido destinado al "público general".
