@@ -1,0 +1,298 @@
+{
+    "designSystem": {
+      "metadata": {
+        "name": "Dubai Club for People of Determination - Events Page Design System",
+        "type": "Sports/Events Organization Website",
+        "style": "Modern, Athletic, Governmental"
+      },
+      "colorPalette": {
+        "primary": {
+          "navyBlue": "#203867",
+          "skyBlue": "#2E96C4",
+          "gold": "#F8B124",
+          "brown": "#7C4212"
+        },
+        "secondary": {
+          "lightBackground": "#fbfbfb",
+          "lightGray": "#e8e8ed",
+          "darkText": "#1f1f1f"
+        },
+        "overlays": {
+          "darkOverlay": "rgba(31, 31, 31, 0.6)",
+          "mediumOverlay": "rgba(31, 31, 31, 0.4)"
+        },
+        "semantic": {
+          "upcoming": "#203867",
+          "happening": "#F8B124",
+          "featured": "#2E96C4"
+        }
+      },
+      "typography": {
+        "headings": {
+          "hero": {
+            "fontSize": "clamp(4rem, 10vw, 8rem)",
+            "fontWeight": "900",
+            "textTransform": "uppercase",
+            "color": "white",
+            "letterSpacing": "-0.02em",
+            "fontFamily": "Space Mono, monospace"
+          },
+          "eventTitle": {
+            "fontSize": "clamp(1.5rem, 3vw, 2rem)",
+            "fontWeight": "600",
+            "color": "#1f1f1f",
+            "fontFamily": "Space Mono, monospace"
+          },
+          "sectionTitle": {
+            "fontSize": "1.125rem",
+            "fontWeight": "600",
+            "color": "white",
+            "fontFamily": "Space Mono, monospace"
+          }
+        },
+        "body": {
+          "fontSize": "1rem",
+          "fontWeight": "400",
+          "lineHeight": "1.5",
+          "fontFamily": "Plus Jakarta Sans, sans-serif"
+        },
+        "labels": {
+          "fontSize": "0.75rem",
+          "fontWeight": "700",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.05em"
+        }
+      },
+      "layout": {
+        "structure": {
+          "type": "Full-width hero with content sections",
+          "heroSection": {
+            "height": "60vh - 80vh",
+            "backgroundType": "Full-bleed photo with dark overlay",
+            "overlayOpacity": "0.3 - 0.5",
+            "contentAlignment": "Left-aligned with vertical spacing"
+          },
+          "contentGrid": {
+            "type": "Card-based grid layout",
+            "columns": "Responsive (1-4 columns)",
+            "gap": "1.5rem - 2rem"
+          }
+        },
+        "spacing": {
+          "containerPadding": "2rem - 4rem",
+          "sectionGap": "4rem - 6rem",
+          "cardPadding": "1.5rem - 2rem",
+          "verticalRhythm": "1.5rem base unit"
+        }
+      },
+      "components": {
+        "header": {
+          "type": "Transparent overlay header",
+          "background": "Semi-transparent dark",
+          "height": "80px - 100px",
+          "layout": "Logo left, navigation center, language/search right",
+          "navigation": {
+            "type": "Horizontal nav links",
+            "color": "white",
+            "hoverEffect": "Underline or color change",
+            "spacing": "2rem - 3rem between items"
+          },
+          "branding": {
+            "type": "Dual logos (Government + Organization)",
+            "alignment": "Left and right edges"
+          }
+        },
+        "heroCard": {
+          "type": "Feature card with overlay",
+          "background": "White with subtle shadow",
+          "borderRadius": "8px - 12px",
+          "padding": "1.5rem - 2rem",
+          "shadow": "0 4px 6px rgba(0,0,0,0.1)",
+          "layout": "Horizontal flex layout",
+          "elements": {
+            "badge": {
+              "type": "Status label",
+              "background": "#000000",
+              "color": "white",
+              "padding": "0.25rem 0.75rem",
+              "borderRadius": "4px",
+              "fontSize": "0.75rem",
+              "fontWeight": "700",
+              "textTransform": "uppercase"
+            },
+            "title": {
+              "fontSize": "1.5rem - 2rem",
+              "fontWeight": "600",
+              "flex": "1"
+            },
+            "date": {
+              "color": "#666666",
+              "fontSize": "1rem"
+            },
+            "icon": {
+              "type": "Moon/theme toggle",
+              "size": "40px - 48px",
+              "color": "#1a1a1a",
+              "position": "Right aligned"
+            }
+          }
+        },
+        "eventCards": {
+          "type": "Photo cards with text overlay",
+          "aspectRatio": "16:9 or 4:3",
+          "borderRadius": "8px - 12px",
+          "overflow": "hidden",
+          "imageOverlay": {
+            "type": "Gradient overlay",
+            "gradient": "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%)"
+          },
+          "textOverlay": {
+            "position": "Bottom left",
+            "padding": "1.5rem",
+            "color": "white",
+            "elements": {
+              "badge": {
+                "background": "rgba(255,255,255,0.2)",
+                "backdropFilter": "blur(10px)",
+                "padding": "0.25rem 0.75rem",
+                "borderRadius": "4px",
+                "fontSize": "0.75rem",
+                "textTransform": "uppercase"
+              },
+              "title": {
+                "fontSize": "1.25rem - 1.5rem",
+                "fontWeight": "600",
+                "marginTop": "0.5rem"
+              }
+            }
+          },
+          "hoverEffect": {
+            "transform": "scale(1.05)",
+            "transition": "transform 0.3s ease"
+          }
+        },
+        "sectionHeader": {
+          "type": "Icon + text heading",
+          "layout": "Horizontal flex",
+          "gap": "1rem",
+          "icon": {
+            "type": "Simple line icon",
+            "size": "24px - 32px",
+            "color": "white"
+          },
+          "text": {
+            "fontSize": "1.125rem",
+            "fontWeight": "600",
+            "color": "white"
+          }
+        }
+      },
+      "visualEffects": {
+        "shadows": {
+          "card": "0 4px 6px rgba(0,0,0,0.1)",
+          "cardHover": "0 8px 16px rgba(0,0,0,0.15)",
+          "elevated": "0 12px 24px rgba(0,0,0,0.2)"
+        },
+        "transitions": {
+          "default": "all 0.3s ease",
+          "fast": "all 0.15s ease",
+          "slow": "all 0.5s ease"
+        },
+        "filters": {
+          "imageOverlay": "brightness(0.8)",
+          "glassmorphism": "blur(10px)"
+        },
+        "borderRadius": {
+          "small": "4px",
+          "medium": "8px",
+          "large": "12px",
+          "xlarge": "16px"
+        }
+      },
+      "patterns": {
+        "heroSection": {
+          "structure": "Full-width background image + dark overlay + large heading + featured content card",
+          "positioning": "Heading on left, card centered or floating over image"
+        },
+        "contentSections": {
+          "structure": "Dark background section + section header + grid of cards",
+          "flow": "Vertical stacking with consistent spacing"
+        },
+        "navigationPattern": {
+          "type": "Fixed header with transparent background over hero",
+          "behavior": "May become solid on scroll"
+        },
+        "cardGrid": {
+          "responsive": {
+            "mobile": "1 column",
+            "tablet": "2 columns",
+            "desktop": "3-4 columns"
+          },
+          "alignment": "Start aligned with equal heights"
+        }
+      },
+      "imageGuidelines": {
+        "hero": {
+          "type": "Action photography - sports/athletic scenes",
+          "treatment": "Full-bleed with dark overlay (30-50% opacity)",
+          "focus": "Dynamic movement, multiple subjects acceptable"
+        },
+        "cards": {
+          "type": "Event/activity photography",
+          "treatment": "Bottom gradient overlay for text legibility",
+          "focus": "Clear subject matter, high energy"
+        },
+        "aspectRatios": {
+          "hero": "21:9 or wider",
+          "cards": "16:9 or 4:3"
+        }
+      },
+      "accessibility": {
+        "features": [
+          "Accessibility toggle button (bottom left)",
+          "High contrast text over images",
+          "Sufficient color contrast ratios",
+          "Clear focus states for interactive elements"
+        ],
+        "textContrast": {
+          "overlayText": "White text on dark overlays (minimum 60% opacity)",
+          "badges": "High contrast backgrounds"
+        }
+      },
+      "responsiveStrategy": {
+        "breakpoints": {
+          "mobile": "< 768px",
+          "tablet": "768px - 1024px",
+          "desktop": "> 1024px"
+        },
+        "adaptations": {
+          "mobile": {
+            "heroHeading": "Smaller font size, still bold",
+            "navigation": "Hamburger menu",
+            "cards": "Single column stack",
+            "featuredCard": "Full width, vertical layout"
+          },
+          "desktop": {
+            "heroHeading": "Maximum impact size",
+            "navigation": "Horizontal full menu",
+            "cards": "Multi-column grid",
+            "featuredCard": "Horizontal layout with icon on right"
+          }
+        }
+      },
+      "contentStrategy": {
+        "badgeLabels": {
+          "types": ["UPCOMING", "HAPPENING RIGHT NOW", "FEATURED"],
+          "style": "Short, urgent, uppercase"
+        },
+        "titleTreatment": {
+          "maxLength": "3-6 words",
+          "style": "Clear, descriptive, event-focused"
+        },
+        "dateFormat": {
+          "style": "Month DD, YYYY",
+          "position": "Right-aligned or below title"
+        }
+      }
+    }
+  }
