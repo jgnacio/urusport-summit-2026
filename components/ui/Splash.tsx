@@ -68,7 +68,7 @@ export default function Splash({ children }: { children: React.ReactNode }) {
       {loading && (
         <div
           ref={containerRef}
-          className="splash-container fixed inset-0 w-full h-screen flex items-center justify-center bg-background z-50"
+          className="splash-container fixed inset-0 w-full h-screen flex items-center justify-center bg-[#e8e8ed] z-50"
         >
           <div className="absolute w-[280px] h-[158px] mx-auto -rotate-90 -translate-x-1/4">
             <div 
