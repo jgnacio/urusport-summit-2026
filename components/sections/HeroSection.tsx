@@ -34,7 +34,7 @@ export default function HeroSection() {
     <section
       ref={heroRef}
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#1f1f1f]"
     >
       <div className="absolute inset-0 bg-linear-to-b from-[#1f1f1f]/40 via-[#1f1f1f]/50 to-[#1f1f1f]/30 z-10"></div>
 
@@ -45,7 +45,6 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        poster="/images/logo_urusport_summit_2026.webp"
       >
         <source src="/videos/hero_video.mp4" type="video/mp4" />
         Tu navegador no soporta el elemento video.
