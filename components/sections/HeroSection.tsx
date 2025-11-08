@@ -39,14 +39,17 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-linear-to-b from-[#1f1f1f]/40 via-[#1f1f1f]/50 to-[#1f1f1f]/30 z-10"></div>
 
       {/* Video de fondo */}
-      {/* <iframe
-        src="https://www.youtube.com/embed/vy6FivZHRjQ?autoplay=1&mute=1&loop=1&controls=0&playlist=vy6FivZHRjQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0"
+      <video
         className="absolute inset-0 w-full h-full object-cover"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen={false}
-        title="URUSport Summit 2026 Background Video"
-      ></iframe> */}
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/images/logo_urusport_summit_2026.webp"
+      >
+        <source src="/videos/hero_video.mp4" type="video/mp4" />
+        Tu navegador no soporta el elemento video.
+      </video>
 
       {/* Dark Overlay */}
 

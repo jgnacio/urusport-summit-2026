@@ -5,6 +5,7 @@ import { ViewTransitions } from "next-view-transitions";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import Revealer from "@/components/sections/Revealer";
+import Splash from "@/components/ui/Splash";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -29,16 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="es">
-        <body
-          className={`${plusJakartaSans.variable} ${spaceMono.variable} antialiased`}
-        >
-          <Revealer />
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ViewTransitions>
+        <html lang="es">
+          <body className={`${plusJakartaSans.variable} ${spaceMono.variable} antialiased`}>
+        <Splash>
+            <Revealer />
+            <Header />
+            {children}
+            <Footer />
+    </Splash>
+          </body>
+        </html>
+      </ViewTransitions>
   );
 }
