@@ -40,7 +40,7 @@ export default function NavBar() {
       {/* Logo - Solo visible en desktop, fuera de la barra */}
       <a 
             href="#inicio" 
-            className="text-white font-bold text-xl hidden md:block md:text-2xl font-['Space_Mono'] hover:text-[#F8B124] transition-all duration-300"
+            className="text-white inverted-colors: font-bold text-xl hidden md:block md:text-2xl font-['Space_Mono'] hover:text-[#F8B124] transition-all duration-300"
           >
             URUSport SUMMIT 2026
           </a>
@@ -61,7 +61,7 @@ export default function NavBar() {
           >
             <img 
               src="/images/logo_urusport_summit_2026.webp" 
-              alt="URUSport Summit 2026" 
+              alt="URUSport SUMMIT 2026" 
               className="h-8 w-auto"
             />
           </a>
@@ -80,9 +80,9 @@ export default function NavBar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8B124] transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            <button className="bg-secondary text-white px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl">
+            <a href="mailto:info@urusuportsummit.uy" className="bg-secondary text-white px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl">
               Registrarse
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -131,9 +131,9 @@ export default function NavBar() {
                 <span className="absolute -bottom-1 left-4 w-0 h-0.5 bg-[#F8B124] transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></span>
               </a>
             ))}
-            <button className="bg-secondary text-white w-full px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl">
+            <a href="mailto:info@urusuportsummit.uy" className="bg-secondary text-white w-full px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl inline-block text-center">
               Registrarse
-            </button>
+            </a>
           </div>
         </div>
       </div>

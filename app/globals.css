@@ -52,7 +52,7 @@
   /* Secundaria: #fbfbfb (Light BG), #e8e8ed (Light Gray), #1f1f1f (Dark Text) */
   
   --radius: 1rem;
-  --background: #fbfbfb;
+  --background: #e8e8ed;
   --foreground: #1f1f1f;
   --card: #ffffff;
   --card-foreground: #1f1f1f;

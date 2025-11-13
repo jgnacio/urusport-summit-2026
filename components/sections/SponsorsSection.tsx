@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SponsorsSection() {
   return (
-    <section id="sponsors" className="relative py-24 px-6 bg-[#fbfbfb]">
+    <section id="sponsors" className="relative py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-[#203867] text-3xl lg:text-4xl font-bold mb-4 font-['Space_Mono']">

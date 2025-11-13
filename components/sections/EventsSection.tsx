@@ -65,7 +65,7 @@ export default function EventsSection() {
   }, []);
 
   return (
-    <section id="embajadores" className="relative py-24 px-6 bg-[#e8e8ed]">
+    <section id="embajadores" className="relative py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex items-center gap-4 mb-12">

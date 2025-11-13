@@ -14,6 +14,7 @@ if (typeof window !== 'undefined') {
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -27,7 +28,20 @@ export default function HeroSection() {
       });
     });
 
-    return () => ctx.revert();
+    // Iniciar el video después de que termine la animación del Splash
+    // La animación del Splash dura aproximadamente 2.5 segundos
+    const videoTimer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play().catch((error) => {
+          console.log('Error al reproducir el video:', error);
+        });
+      }
+    }, 2400); // 2.6 segundos para asegurar que el Splash haya terminado
+
+    return () => {
+      ctx.revert();
+      clearTimeout(videoTimer);
+    };
   }, []);
 
   return (
@@ -40,8 +54,8 @@ export default function HeroSection() {
 
       {/* Video de fondo */}
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
         muted
         loop
         playsInline
@@ -83,7 +97,7 @@ export default function HeroSection() {
                     <h2 className="text-white text-xl font-bold mb-2 font-['Space_Mono'] leading-tight"
                       style={{ textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}
                     >
-                      URUSport Summit 2026
+                      URUSport SUMMIT 2026
                     </h2>
                     
                     <p className="text-white/90 text-base font-['Plus_Jakarta_Sans'] mb-2"
@@ -109,12 +123,12 @@ export default function HeroSection() {
         {/* Layout desktop: Logo izquierda, Card derecha */}
         <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between w-full h-full">
           {/* Logo */}
-          <div className="w-80 xl:w-96">
+          <div className="w-80 xl:w-96 ">
             <Logo/>
           </div>
 
           {/* Featured Card */}
-          <div className="hero-content max-w-lg xl:max-w-xl">
+          <div className="hero-content max-w-sm ">
             <div className="backdrop-blur-3xl bg-white/10 border border-white/30 rounded-2xl p-8 shadow-2xl transition-all duration-300 hover:bg-white/15 hover:border-white/40"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%)',
@@ -132,13 +146,13 @@ export default function HeroSection() {
                   <h2 className="text-white text-4xl font-bold mb-3 font-['Space_Mono'] leading-tight"
                     style={{ textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}
                   >
-                    URUSport Summit 2026
+                    URUSport SUMMIT 2026
                   </h2>
                   
                   <p className="text-white/90 text-lg font-['Plus_Jakarta_Sans'] mb-2"
                     style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                   >
-                    Marzo 2026
+                    Mayo 2026
                   </p>
                 </div>
 

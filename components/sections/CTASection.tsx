@@ -23,10 +23,10 @@ export default function CTASection() {
         <p className="text-white/90 text-lg lg:text-2xl mb-12 max-w-3xl mx-auto font-['Plus_Jakarta_Sans']">
           Únete al movimiento que está transformando el deporte uruguayo
         </p>
-        <button className="inline-flex items-center gap-3 bg-[#2E96C4] text-white px-10 py-5 rounded-2xl text-base font-bold uppercase tracking-wider hover:bg-[#F8B124] transition-all duration-300 shadow-2xl font-['Space_Mono']">
+        <a href="mailto:info@urusuportsummit.uy" className="inline-flex items-center gap-3 bg-[#2E96C4] text-white px-10 py-5 rounded-2xl text-base font-bold uppercase tracking-wider hover:bg-[#F8B124] transition-all duration-300 shadow-2xl font-['Space_Mono']">
           Contactar Ahora
           <ArrowRight className="w-6 h-6" />
-        </button>
+        </a>
       </div>
     </section>
   );
