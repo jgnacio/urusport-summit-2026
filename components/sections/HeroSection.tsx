@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Plus, ChevronDown, Calendar } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import Logo from './Logo';
-import ChangeSection from './ChangeSection';
 
 // Registrar plugin de ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -14,7 +13,6 @@ if (typeof window !== 'undefined') {
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,19 +26,8 @@ export default function HeroSection() {
       });
     });
 
-    // Iniciar el video después de que termine la animación del Splash
-    // La animación del Splash dura aproximadamente 2.5 segundos
-    const videoTimer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch((error) => {
-          console.log('Error al reproducir el video:', error);
-        });
-      }
-    }, 2400); // 2.6 segundos para asegurar que el Splash haya terminado
-
     return () => {
       ctx.revert();
-      clearTimeout(videoTimer);
     };
   }, []);
 
@@ -54,11 +41,11 @@ export default function HeroSection() {
 
       {/* Video de fondo */}
       <video
-        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         muted
         loop
         playsInline
+        autoPlay
       >
         <source src="/videos/hero_video.mp4" type="video/mp4" />
         Tu navegador no soporta el elemento video.

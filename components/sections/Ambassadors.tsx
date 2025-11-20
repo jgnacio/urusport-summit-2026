@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import AnimatedText from '@/components/ui/AnimatedText';
 import SebaCoatesHover from '@/public/images/SebastianCoates.jpeg';
 import SebaCoates from '@/public/images/SebastianCoates3.webp';
 import ChrisNamus from '@/public/images/ChrisNamus2.jpg';
@@ -208,17 +208,19 @@ function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
           }}
         />
       )}
+{/* overlay */}
+      <div className='w-full h-full absolute inset-0 bg-[#203867]/10 p-4 sm:p-5 md:p-6'></div>
 
       {/* Overlay con gradiente */}
       <div 
         ref={overlayRef}
-        className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6'
+        className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-5 md:p-6 z-10'
       >
-        <h3 ref={nameRef} className='text-white text-2xl font-bold mb-2'>
+        <h3 ref={nameRef} className='text-white text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2'>
           {ambassador.name}
         </h3>
         <div ref={badgeRef} className='inline-block'>
-          <Badge style={{ backgroundColor: ambassador.color }} className="text-white">
+          <Badge style={{ backgroundColor: ambassador.color }} className="text-white text-xs sm:text-sm">
             {ambassador.discipline}
           </Badge>
         </div>
@@ -228,92 +230,155 @@ function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
 }
 
 export default function AmbassadorsSection() {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<SVGSVGElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    // Animación del header
-    if (headerRef.current && iconRef.current && titleRef.current) {
-      gsap.from(iconRef.current, {
-        rotation: -180,
-        scale: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'back.out(1.7)',
+    // Detectar si es desktop (lg breakpoint = 1024px)
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsDesktop);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!gridRef.current || cardsRef.current.length === 0 || !sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Posiciones y rotaciones iniciales únicas para cada tarjeta
+      const initialStates = [
+        { x: -800, y: -300, rotation: -45, scale: 0.3 },  // Card 1: desde arriba izquierda
+        { x: 600, y: -400, rotation: 35, scale: 0.25 },   // Card 2: desde arriba derecha
+        { x: -700, y: 200, rotation: -60, scale: 0.35 },  // Card 3: desde izquierda
+        { x: 800, y: 150, rotation: 50, scale: 0.3 },     // Card 4: desde derecha
+        { x: -600, y: 500, rotation: -40, scale: 0.28 },  // Card 5: desde abajo izquierda
+        { x: 700, y: 600, rotation: 55, scale: 0.32 },    // Card 6: desde abajo derecha
+      ];
+
+      // Aplicar estados iniciales
+      cardsRef.current.forEach((card, index) => {
+        if (card && initialStates[index]) {
+          gsap.set(card, {
+            x: initialStates[index].x,
+            y: initialStates[index].y,
+            rotation: initialStates[index].rotation,
+            scale: initialStates[index].scale,
+            opacity: 0,
+            filter: 'blur(20px)',
+          });
+        }
+      });
+
+      // Timeline principal con ScrollTrigger
+      const mainTimeline = gsap.timeline({
         scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: '+=150%',
+          scrub: 1.5,
+          pin: true,
+          anticipatePin: 1,
+          // markers: true, // Descomentar para debug
         },
       });
 
-      gsap.from(titleRef.current, {
-        x: -30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-        },
-      });
-    }
+      // Animar cada tarjeta con efectos únicos
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
 
-    // Animación de cards con scroll trigger
-    gsap.from('.ambassador-card', {
-      opacity: 0,
-      y: 60,
-      scale: 0.9,
-      duration: 0.9,
-      stagger: 0.12,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.bento-grid',
-        start: 'top 80%',
-      },
+        // Crear timeline para cada tarjeta
+        mainTimeline.to(card, {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 1.5,
+          ease: 'power4.out',
+        }, index * 0.08); // Stagger secuencial
+
+        // Efecto de "rebote" al llegar a la posición
+        mainTimeline.to(card, {
+          scale: 1.03,
+          duration: 0.2,
+          ease: 'power3.inOut',
+        }, index * 0.08 + 1.5);
+
+        mainTimeline.to(card, {
+          scale: 1,
+          duration: 0.5,
+          ease: 'back.out(2)',
+        }, index * 0.08 + 1.7);
+      });
+
+      // Efecto de "magnetismo" - las tarjetas se atraen ligeramente al pasar
+     
     });
+
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
-    <section id="embajadores" className="relative py-24 px-6">
+    <section ref={sectionRef} id="embajadores" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div ref={headerRef} className="flex items-center gap-4 mb-12">
-          <Users ref={iconRef} className="w-8 h-8 text-[#2E96C4]" />
-          <h2 ref={titleRef} className="text-[#203867] text-xl font-semibold uppercase tracking-wide font-['Space_Mono']">
-            Nuestros Embajadores
-          </h2>
+        <div 
+          className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 lg:absolute lg:-bottom-6 lg:left-10" 
+          style={{ 
+            transform: isDesktop ? 'translate(1.5rem, -50%) rotate(-90deg)' : 'none', 
+            transformOrigin: 'left center' 
+          }}
+        >
+          <AnimatedText
+            text="EMBAJADORES QUE INSPIRAN"
+            className="text-[#203867] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-tight font-['Space_Mono']"
+            staggerDelay={0.04}
+            duration={1}
+            yOffset={120}
+            triggerStart="top 50%"
+          />
         </div>
 
-        {/* Bento Grid */}
-        <div className='grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] grid-rows-2 gap-4 bento-grid'>
-            {/* Card 1 - col-span-6 */}
-            <div className='col-span-6 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+        {/* Bento Grid - Responsive */}
+        <div ref={gridRef} className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] gap-4 bento-grid'>
+            {/* Card 1 - col-span-6 en desktop, full en mobile */}
+            <div ref={(el) => { if (el) cardsRef.current[0] = el; }} className='col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-6 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[0]} />
             </div>
 
-            {/* Card 2 - col-span-4 */}
-            <div className='col-span-4 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+            {/* Card 2 - col-span-4 en desktop */}
+            <div ref={(el) => { if (el) cardsRef.current[1] = el; }} className='col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-4 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[1]} />
             </div>
 
-            {/* Card 3 - col-span-4 */}
-            <div className='col-span-4 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+            {/* Card 3 - col-span-4 en desktop */}
+            <div ref={(el) => { if (el) cardsRef.current[2] = el; }} className='col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-4 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[2]} />
             </div>
 
-            {/* Card 4 - col-span-4 */}
-            <div className='col-span-4 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+            {/* Card 4 - col-span-4 en desktop */}
+            <div ref={(el) => { if (el) cardsRef.current[3] = el; }} className='col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-4 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[3]} />
             </div>
 
-            {/* Card 5 - col-span-4 */}
-            <div className='col-span-4 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+            {/* Card 5 - col-span-4 en desktop */}
+            <div ref={(el) => { if (el) cardsRef.current[4] = el; }} className='col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-4 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[4]} />
             </div>
 
-            {/* Card 6 - col-span-6 */}
-            <div className='col-span-6 h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
+            {/* Card 6 - col-span-6 en desktop, full en mobile */}
+            <div ref={(el) => { if (el) cardsRef.current[5] = el; }} className='col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-6 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[5]} />
             </div>
         </div>

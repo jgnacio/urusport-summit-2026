@@ -61,8 +61,8 @@ export default function Splash({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Contenido de la web siempre renderizado debajo */}
-      {children}
+      {/* Contenido de la web solo se renderiza después del splash */}
+      {!loading && children}
       
       {/* Splash screen por encima */}
       {loading && (
