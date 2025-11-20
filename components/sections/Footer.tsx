@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Columna 1 - Branding */}
           <div>
-            <div className="font-bold text-2xl mb-4 uppercase tracking-tight font-['Space_Mono']">
+            <div className="font-bold text-2xl mb-4 tracking-tight font-['Space_Mono']">
               URUSport SUMMIT 2026
             </div>
             <p className="text-white/70 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">

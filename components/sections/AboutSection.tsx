@@ -3,8 +3,9 @@ import { ArrowRight, Target } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 px-6 bg-[#203867]">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-24 px-6 ">
+      <div className="bg-[#203867] w-full h-full absolute top-0 left-0 -z-20"></div>
+      <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header con Icono */}
         <div className="flex items-center gap-4 mb-12">
           <Target className="w-8 h-8 text-[#F8B124]" />
