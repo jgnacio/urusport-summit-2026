@@ -233,6 +233,8 @@ export default function AmbassadorsSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const introTitleRef = useRef<HTMLHeadingElement>(null);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -250,7 +252,7 @@ export default function AmbassadorsSection() {
   }, []);
 
   useEffect(() => {
-    if (!gridRef.current || cardsRef.current.length === 0 || !sectionRef.current) return;
+    if (!gridRef.current || cardsRef.current.length === 0 || !sectionRef.current || !introTitleRef.current) return;
 
     const ctx = gsap.context(() => {
       // Posiciones y rotaciones iniciales únicas para cada tarjeta
@@ -281,16 +283,34 @@ export default function AmbassadorsSection() {
       const mainTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=150%',
+          start: isDesktop ? 'center center' : 'top center',
+          end: isDesktop ? '+=200%' : '+=150%',
           scrub: 1.5,
-          pin: true,
+          pin: isDesktop ? sectionRef.current : false,
           anticipatePin: 1,
-          // markers: true, // Descomentar para debug
         },
       });
 
-      // Animar cada tarjeta con efectos únicos
+      // Fase 1: Mostrar título intro y mantenerlo un momento
+      mainTimeline.from(introTitleRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, 0);
+
+      // Mantener el título visible
+      mainTimeline.to({}, { duration: 0.3 }, 0.5);
+
+      // Fase 2: Desvanecer el título mientras empiezan a aparecer las cards
+      mainTimeline.to(introTitleRef.current, {
+        opacity: 0,
+        y: -30,
+        duration: 0.4,
+        ease: 'power2.in',
+      }, 0.8);
+
+      // Fase 3: Animar cada tarjeta con efectos únicos
       cardsRef.current.forEach((card, index) => {
         if (!card) return;
 
@@ -304,52 +324,76 @@ export default function AmbassadorsSection() {
           filter: 'blur(0px)',
           duration: 1.5,
           ease: 'power4.out',
-        }, index * 0.08); // Stagger secuencial
+        }, 0.9 + (index * 0.08)); // Stagger secuencial empezando después del fade del título
 
         // Efecto de "rebote" al llegar a la posición
         mainTimeline.to(card, {
           scale: 1.03,
           duration: 0.2,
           ease: 'power3.inOut',
-        }, index * 0.08 + 1.5);
+        }, 0.9 + (index * 0.08) + 1.5);
 
         mainTimeline.to(card, {
           scale: 1,
           duration: 0.5,
           ease: 'back.out(2)',
-        }, index * 0.08 + 1.7);
+        }, 0.9 + (index * 0.08) + 1.7);
       });
 
-      // Efecto de "magnetismo" - las tarjetas se atraen ligeramente al pasar
-     
     });
 
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
-    <section ref={sectionRef} id="embajadores" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div 
-          className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 lg:absolute lg:-bottom-6 lg:left-10" 
-          style={{ 
-            transform: isDesktop ? 'translate(1.5rem, -50%) rotate(-90deg)' : 'none', 
-            transformOrigin: 'left center' 
-          }}
-        >
+    <section ref={sectionRef} id="embajadores" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden min-h-screen flex items-center justify-center">
+      {/* Título de introducción que se desvanece - Posicionado absolutamente */}
+      {
+        isDesktop && (
+<div 
+        ref={introTitleRef}
+        className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none px-4"
+      >
+        <div className="text-[#203867] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase text-center tracking-tight leading-tight font-['Space_Mono']">
           <AnimatedText
             text="EMBAJADORES QUE INSPIRAN"
             className="text-[#203867] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-tight font-['Space_Mono']"
             staggerDelay={0.04}
             duration={1}
             yOffset={120}
-            triggerStart="top 50%"
+            triggerStart="top bottom"
           />
         </div>
+      </div>
+        )
+      }
+      
+      {/* Título animado rotado (solo desktop) */}
+      <div 
+        className="hidden lg:block lg:absolute lg:top-1/2 lg:left-10 z-10" 
+        style={{ 
+          transform: 'translate(0, -50%) rotate(-90deg)', 
+          transformOrigin: 'left center' 
+        }}
+      >
+        
+      </div>
 
+      <div className="max-w-7xl mx-auto w-full">
+      {
+        !isDesktop && (
+          <AnimatedText
+            text="Embajadores que inspiran"
+            className="text-[#203867] text-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-tight font-['Space_Mono']"
+            staggerDelay={0.04}
+            duration={1}
+            yOffset={120}
+            triggerStart="top bottom"
+          />
+        )
+      }
         {/* Bento Grid - Responsive */}
         <div ref={gridRef} className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] gap-4 bento-grid'>
             {/* Card 1 - col-span-6 en desktop, full en mobile */}
