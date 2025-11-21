@@ -144,12 +144,13 @@ export default function HeroSection() {
                 </div>
 
                 {/* Icono más */}
-                <button
+                <a
+                  href="mailto:info@urusuportsummit.uy"
                   className="shrink-0 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-[#2E96C4] hover:border-[#2E96C4] transition-all duration-300 group shadow-lg"
                   aria-label="Más información"
                 >
                   <Plus className="w-7 h-7 text-white group-hover:rotate-90 transition-transform duration-300" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

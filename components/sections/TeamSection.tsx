@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users } from 'lucide-react';
+import AnimatedText from '../ui/AnimatedText';
 
 export default function TeamSection() {
   return (
@@ -14,9 +15,14 @@ export default function TeamSection() {
         </div>
 
         <div className="space-y-8 max-w-4xl">
-          <h3 className="text-white text-4xl lg:text-5xl font-bold leading-tight font-['Space_Mono']">
-            Somos un equipo de jóvenes profesionales
-          </h3>
+        <AnimatedText
+            text="Somos un equipo de jóvenes profesionales"
+            className="text-white text-3xl md:text-4xl lg:text-6xl font-bold leading-tight font-['Space_Mono'] tracking-tight"
+            staggerDelay={0.02}
+            duration={0.6}
+            yOffset={7}
+            triggerStart="top bottom"
+          />
           <p className="text-white/90 text-lg lg:text-xl leading-relaxed font-['Plus_Jakarta_Sans']">
             que nos mueve el desafío impactar positivamente al país a través del deporte. Conectamos líderes, atletas, empresarios y entrenadores para construir juntos el futuro deportivo de Uruguay.
           </p>

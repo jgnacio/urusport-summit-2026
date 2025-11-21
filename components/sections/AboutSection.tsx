@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Target } from 'lucide-react';
+import AnimatedText from '../ui/AnimatedText';
 
 export default function AboutSection() {
   return (
@@ -15,17 +16,22 @@ export default function AboutSection() {
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-white text-4xl lg:text-5xl font-bold leading-tight font-['Space_Mono']">
-            ¿Qué deporte construimos? ¿Y si lo pensamos juntos?
-          </h3>
+          <AnimatedText
+            text="¿Qué deporte construimos? ¿Y si lo pensamos juntos?"
+            className="text-white text-3xl md:text-4xl lg:text-6xl font-bold leading-tight font-['Space_Mono'] tracking-tight"
+            staggerDelay={0.02}
+            duration={0.6}
+            yOffset={7}
+            triggerStart="top bottom"
+          />
           <p className="text-white/90 text-lg lg:text-xl leading-relaxed max-w-4xl font-['Plus_Jakarta_Sans']">
             Directivos, Atletas, Empresarios, Políticos, Entrenadores y Profesionales del sector en un mismo lugar compartiendo experiencias, conocimiento e intereses en pos de un crecimiento exponencial del sector.
           </p>
           <div className="pt-6">
-            <button className="inline-flex items-center gap-3 bg-[#2E96C4] text-white px-8 py-4 rounded-2xl text-sm font-bold uppercase tracking-wider hover:bg-[#F8B124] transition-all duration-300 shadow-xl font-['Space_Mono']">
+            <a href="mailto:info@urusuportsummit.uy" className="inline-flex items-center gap-3 bg-[#2E96C4] text-white px-8 py-4 rounded-2xl text-sm font-bold uppercase tracking-wider hover:bg-[#F8B124] transition-all duration-300 shadow-xl font-['Space_Mono']">
               Únete al Movimiento
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

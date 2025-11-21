@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import ChangeSection from './ChangeSection';
+import AnimatedText from '../ui/AnimatedText';
 
 export default function CTASection() {
   return (
@@ -17,9 +18,14 @@ export default function CTASection() {
 
       {/* Contenido */}
       <div className="relative z-10 w-full px-6 text-center max-w-5xl mx-auto">
-        <h2 className="text-white text-4xl lg:text-6xl font-black uppercase mb-8 leading-tight font-['Space_Mono']">
-          SÉ PARTE DEL CAMBIO
-        </h2>
+      <AnimatedText
+            text="SÉ PARTE DEL CAMBIO"
+            className="text-white text-4xl lg:text-6xl font-bold leading-tight font-['Space_Mono'] tracking-tight"
+            staggerDelay={0.04}
+            duration={0.6}
+            yOffset={120}
+            triggerStart="center bottom"
+          />
         <p className="text-white/90 text-lg lg:text-2xl mb-12 max-w-3xl mx-auto font-['Plus_Jakarta_Sans']">
           Únete al movimiento que está transformando el deporte uruguayo
         </p>

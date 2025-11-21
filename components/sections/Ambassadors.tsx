@@ -386,7 +386,7 @@ export default function AmbassadorsSection() {
         !isDesktop && (
           <AnimatedText
             text="Embajadores que inspiran"
-            className="text-[#203867] text-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-tight font-['Space_Mono']"
+            className="text-[#203867] text-center w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight font-['Space_Mono']"
             staggerDelay={0.04}
             duration={1}
             yOffset={120}

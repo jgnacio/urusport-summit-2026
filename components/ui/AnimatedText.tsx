@@ -53,29 +53,39 @@ export default function AnimatedText({
     return () => ctx.revert();
   }, [text, staggerDelay, duration, yOffset, triggerStart]);
 
-  // Dividir el texto en caracteres, preservando espacios
-  const characters = text.split('');
+  // Dividir el texto en palabras
+  const words = text.split(' ');
+  let letterIndex = 0;
 
   return (
     <Component
       ref={containerRef as any}
-      className={`inline-block overflow-hidden ${className}`}
+      className={`block overflow-visible ${className}`}
       style={{ perspective: '1000px' }}
     >
-      {characters.map((char, index) => (
+      {words.map((word, wordIndex) => (
         <span
-          key={index}
-          ref={(el) => {
-            if (el) lettersRef.current[index] = el;
-          }}
-          className="inline-block"
-          style={{
-            transformOrigin: 'bottom center',
-            // Preservar espacios
-            ...(char === ' ' ? { width: '0.3em' } : {}),
-          }}
+          key={wordIndex}
+          className="inline-block whitespace-nowrap"
+          style={{ marginRight: wordIndex < words.length - 1 ? '0.3em' : '0' }}
         >
-          {char === ' ' ? '\u00A0' : char}
+          {word.split('').map((char, charIndex) => {
+            const currentIndex = letterIndex++;
+            return (
+              <span
+                key={charIndex}
+                ref={(el) => {
+                  if (el) lettersRef.current[currentIndex] = el;
+                }}
+                className="inline-block"
+                style={{
+                  transformOrigin: 'bottom center',
+                }}
+              >
+                {char}
+              </span>
+            );
+          })}
         </span>
       ))}
     </Component>
