@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +17,15 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Determinar si estamos en una página de embajador
+  const isAmbassadorPage = pathname.startsWith('/embajadores/');
+
+  // Configurar enlaces según la página actual
   const navLinks = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#embajadores', label: 'Embajadores' },
-    { href: '#hub', label: 'El Hub' },
-    { href: '#sponsors', label: 'Sponsors' },
+    { href: isAmbassadorPage ? '/#inicio' : '#inicio', label: 'Inicio' },
+    { href: isAmbassadorPage ? '/#embajadores' : '#embajadores', label: 'Embajadores' },
+    { href: isAmbassadorPage ? '/#hub' : '#hub', label: 'El Hub' },
+    { href: isAmbassadorPage ? '/#sponsors' : '#sponsors', label: 'Sponsors' },
   ];
 
   const handleLinkClick = () => {
@@ -38,8 +44,8 @@ export default function NavBar() {
       } max-w-7xl`}
     >
       {/* Logo - Solo visible en desktop, fuera de la barra */}
-      <a 
-            href="#inicio" 
+      <a
+            href={isAmbassadorPage ? "/#inicio" : "#inicio"}
             className="text-white inverted-colors: font-bold text-xl hidden md:block md:text-2xl font-['Space_Mono'] hover:text-[#F8B124] transition-all duration-300"
           >
             URUSport SUMMIT 2026
@@ -55,13 +61,13 @@ export default function NavBar() {
         {/* Desktop & Mobile Header */}
         <div className="flex items-center justify-between px-6 md:px-8 py-4">
           {/* Logo móvil - Visible solo en mobile dentro de la barra */}
-          <a 
-            href="#inicio" 
+          <a
+            href={isAmbassadorPage ? "/#inicio" : "#inicio"}
             className="flex items-center md:hidden"
           >
-            <img 
-              src="/images/logo_urusport_summit_2026.webp" 
-              alt="URUSport SUMMIT 2026" 
+            <img
+              src="/images/logo_urusport_summit_2026.webp"
+              alt="URUSport SUMMIT 2026"
               className="h-8 w-auto"
             />
           </a>

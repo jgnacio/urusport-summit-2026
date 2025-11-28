@@ -1,22 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/ui/AnimatedText';
-import SebaCoatesHover from '@/public/images/SebastianCoates.jpeg';
-import SebaCoates from '@/public/images/SebastianCoates3.webp';
-import ChrisNamus from '@/public/images/ChrisNamus2.jpg';
-import ChrisNamusHover from '@/public/images/ChrisNamus3.jpg';
-import MarcosSarraute from '@/public/images/MarcosSarraute.jpg';
-import MarcosSarrauteHover from '@/public/images/MarcosSarraute1.jpg';
-import PatriciaPita from '@/public/images/PatriciaPita1.jpg';
-import PatriciaPitaHover from '@/public/images/PatriciaPita.jpg';
-import SebastianOttonello from '@/public/images/SebastianOttonello3.png';
-import SebastianOttonelloHover from '@/public/images/SebastianOttonello1.jpg';
-import DoloresMoreira from '@/public/images/DoloresMoreira.jpg';
-import DoloresMoreiraHover from '@/public/images/DoloresMoreira2.webp';
+import { ambassadorsData } from '@/lib/ambassadors-data';
 
 // Registrar plugin de ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -31,69 +21,34 @@ type Ambassador = {
   image: string | { src: string };
   hoverImage: string | { src: string } | null;
   color: string;
+  slug?: string;
 };
 
-const ambassadors: Ambassador[] = [
-  {
-    id: 1,
-    name: 'Chris Namús',
-    discipline: 'Boxeo',
-    image: ChrisNamus,
-    hoverImage: ChrisNamusHover,
-    color: '#F8B124',
-  },
-
-  {
-    id: 3,
-    name: 'Marcos Sarraute',
-    discipline: 'Remo',
-    image: MarcosSarraute,
-    hoverImage: MarcosSarrauteHover,
-    color: '#2E96C4',
-  },
-  {
-    id: 4,
-    name: 'Patricia Pita',
-    discipline: 'Automovilismo',
-    image: PatriciaPita,
-    hoverImage: PatriciaPitaHover,
-    color: '#7C4212',
-  },
-  {
-    id: 6,
-    name: 'Dolores moreira',
-    discipline: 'Vela',
-    image: DoloresMoreira,
-    hoverImage: DoloresMoreiraHover,
-    color: '#2E96C4',
-  },
-  {
-    id: 5,
-    name: 'Sebastián Ottonello',
-    discipline: 'Basket',
-    image: SebastianOttonello,
-    hoverImage: SebastianOttonelloHover,
-    color: '#203867',
-  },
-
-  {
-    id: 2,
-    name: 'Sebastián Coates',
-    discipline: 'Fútbol',
-    image: SebaCoates,
-    hoverImage: SebaCoatesHover,
-    color: '#203867',
-  },
-];
+const ambassadors: Ambassador[] = ambassadorsData.map((amb) => ({
+  id: amb.id,
+  name: amb.name,
+  discipline: amb.discipline,
+  image: amb.image,
+  hoverImage: amb.hoverImage,
+  color: amb.color,
+  slug: amb.slug,
+}));
 
 // Componente individual de la tarjeta con animaciones
 function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
+  const router = useRouter();
   const cardRef = useRef<HTMLDivElement>(null);
   const mainImageRef = useRef<HTMLImageElement>(null);
   const hoverImageRef = useRef<HTMLImageElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
+    if (ambassador.slug) {
+      router.push(`/embajadores/${ambassador.slug}`);
+    }
+  };
 
   useEffect(() => {
     const card = cardRef.current;
@@ -184,7 +139,11 @@ function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
   const hoverImageSrc = ambassador.hoverImage ? (typeof ambassador.hoverImage === 'string' ? ambassador.hoverImage : ambassador.hoverImage.src) : null;
 
   return (
-    <div ref={cardRef} className='w-full h-full rounded-lg relative overflow-hidden cursor-pointer'>
+    <div 
+      ref={cardRef} 
+      onClick={handleClick}
+      className='w-full h-full rounded-lg relative overflow-hidden cursor-pointer'
+    >
       {/* Imagen principal */}
       <img
         ref={mainImageRef}
