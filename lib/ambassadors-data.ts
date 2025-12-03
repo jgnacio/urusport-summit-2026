@@ -1,5 +1,5 @@
-import SebaCoatesHover from '@/public/images/SebastianCoates.jpeg';
-import SebaCoates from '@/public/images/SebastianCoates3.webp';
+import SebaCoatesHover from '@/public/images/SebastianCoates4.jpeg';
+import SebaCoates from '@/public/images/SebastianCoates3.jpeg';
 import ChrisNamus from '@/public/images/ChrisNamus2.webp';
 import ChrisNamusHover from '@/public/images/ChrisNamus3.webp';
 import MarcosSarraute from '@/public/images/MarcosSarraute.webp';
@@ -70,7 +70,7 @@ export const ambassadorsData: AmbassadorDetail[] = [
   {
     id: 2,
     name: 'Sebastián Coates',
-    fullName: 'Sebastián Bruno Coates Nion',
+    fullName: 'Sebastián Coates Nion',
     discipline: 'Fútbol',
     category: 'Defensor Central',
     birthDate: '07/10/1990',
@@ -78,8 +78,8 @@ export const ambassadorsData: AmbassadorDetail[] = [
     hoverImage: SebaCoatesHover,
     color: '#203867',
     slug: 'sebastian-coates',
-    bio: 'Sebastián Coates Nion es un futbolista uruguayo que juega como defensa en el Club Nacional de Football de la Primera División de Uruguay. Comenzó su carrera en Nacional llegando al club a la edad de 11 años. Debutó profesionalmente en 2009 tras ser ascendido al primer equipo, obteniendo el Campeonato Uruguayo en dos oportunidades y marcando ocho goles. Fue transferido al Liverpool F.C. en 2011. Con la selección uruguaya participó en la Copa América 2011, siendo premiado como Mejor jugador joven de la competición, donde Uruguay obtuvo su 15.ª copa continental. A pesar de haberse renovado su contrato con el Sporting C.P. automáticamente hasta 2025, en julio de 2024 anunció su salida del club para volver a Nacional.',
-    quote: 'Familia, amistad, esfuerzo, espíritu de lucha, disciplina, equipo y fútbol.',
+    bio: 'Sebastian Coates Nion, de 35 años, es un futbolista uruguayo nacido en Montevideo, Uruguay. Actualmente en el Club Nacional de Football. Comenzó su carrera en Nacional llegando al club a la edad de 11 años. Debutó profesionalmente en 2009 tras ser ascendido al primer equipo, obteniendo el Campeonato Uruguayo en dos oportunidades y marcando ocho goles. Fue transferido al Liverpool F.C. en 2011. Con la selección uruguaya participó en la Copa América 2011, siendo premiado como Mejor jugador joven de la competición, donde Uruguay obtuvo su 15.ª copa continental. En julio de 2024 anunció su salida del club para volver a Nacional.',
+    quote: 'con trabajo, humildad y sacrificio todo llega!',
     achievements: [
       'Mejor Jugador - Campeonato Uruguayo 2010-11 (AUF)',
       'Mejor Jugador Joven - Copa América 2011 (Conmebol)',
