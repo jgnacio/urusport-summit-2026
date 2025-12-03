@@ -25,7 +25,7 @@ const ChangeSection = () => {
     return null;
   }
   return (
-    <section id="change" className="w-full h-0 relative top-100 bg-transparent pointer-events-none -z-10">
+    <section id="change" className="w-full h-0 relative top-100 bg-transparent pointer-events-none z-10">
       <CurvedLoop
         marqueeText="SÉ PARTE DEL CAMBIO"
         speed={0.3}

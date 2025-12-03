@@ -46,7 +46,10 @@ export default function EmbajadoresPage() {
             return (
               <div
                 key={ambassador.id}
-                onClick={() => router.push(`/embajadores/${ambassador.slug}`)}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  router.push(`/embajadores/${ambassador.slug}`);
+                }}
                 className="group cursor-pointer"
               >
                 <div
@@ -93,7 +96,10 @@ export default function EmbajadoresPage() {
       {/* CTA */}
       <div className="container mx-auto px-4 py-12 text-center">
         <Button
-          onClick={() => router.push('/#ambassadors')}
+          onClick={() => {
+            // Navegación sin recarga usando Next.js router
+            router.back();
+          }}
           size="lg"
           className="text-lg px-8 py-6 bg-[#F8B124] hover:bg-[#F8B124]/90 text-white"
         >

@@ -4,7 +4,7 @@ import AnimatedText from '../ui/AnimatedText';
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 px-6 ">
+    <section id="sobre-nosotros" className="relative py-16 md:py-24 px-6 bg-[#203867] overflow-hidden">
       <div className="bg-[#203867] w-full h-full absolute top-0 left-0 -z-20"></div>
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header con Icono */}

@@ -46,6 +46,7 @@ function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
 
   const handleClick = () => {
     if (ambassador.slug) {
+      window.scrollTo(0, 0);
       router.push(`/embajadores/${ambassador.slug}`);
     }
   };
@@ -168,7 +169,7 @@ function AmbassadorCard({ ambassador }: { ambassador: Ambassador }) {
         />
       )}
 {/* overlay */}
-      <div className='w-full h-full absolute inset-0 bg-[#203867]/10 p-4 sm:p-5 md:p-6'></div>
+      <div className='w-full h-full absolute inset-0 bg-[#203867]/15 p-4 sm:p-5 md:p-6'></div>
 
       {/* Overlay con gradiente */}
       <div 
@@ -224,7 +225,7 @@ export default function AmbassadorsSection() {
         { x: 700, y: 600, rotation: 55, scale: 0.32 },    // Card 6: desde abajo derecha
       ];
 
-      // Aplicar estados iniciales
+      // Aplicar estados iniciales - con opacidad inicial para evitar pantalla en blanco
       cardsRef.current.forEach((card, index) => {
         if (card && initialStates[index]) {
           gsap.set(card, {
@@ -232,7 +233,7 @@ export default function AmbassadorsSection() {
             y: initialStates[index].y,
             rotation: initialStates[index].rotation,
             scale: initialStates[index].scale,
-            opacity: 0,
+            opacity: 0.05, // Opacidad inicial para mantener contexto visual
             filter: 'blur(20px)',
           });
         }
@@ -254,26 +255,21 @@ export default function AmbassadorsSection() {
       mainTimeline.from(introTitleRef.current, {
         opacity: 0,
         y: 50,
-        duration: 0.5,
+        duration: 0.4,
         ease: 'power2.out',
       }, 0);
 
-      // Mantener el título visible
-      mainTimeline.to({}, { duration: 0.3 }, 0.5);
+      // Mantener el título visible brevemente
+      mainTimeline.to({}, { duration: 0.2 }, 0.4);
 
-      // Fase 2: Desvanecer el título mientras empiezan a aparecer las cards
-      mainTimeline.to(introTitleRef.current, {
-        opacity: 0,
-        y: -30,
-        duration: 0.4,
-        ease: 'power2.in',
-      }, 0.8);
-
-      // Fase 3: Animar cada tarjeta con efectos únicos
+      // Fase 2: Las cards empiezan a aparecer MIENTRAS el título aún es visible
       cardsRef.current.forEach((card, index) => {
         if (!card) return;
 
-        // Crear timeline para cada tarjeta
+        // Iniciar la aparición de las primeras cards antes de que el título empiece a desvanecerse
+        const startTime = 0.5 + (index * 0.06);
+        
+        // Animar cada tarjeta con efectos únicos
         mainTimeline.to(card, {
           x: 0,
           y: 0,
@@ -281,23 +277,31 @@ export default function AmbassadorsSection() {
           scale: 1,
           opacity: 1,
           filter: 'blur(0px)',
-          duration: 1.5,
+          duration: 1.2,
           ease: 'power4.out',
-        }, 0.9 + (index * 0.08)); // Stagger secuencial empezando después del fade del título
+        }, startTime);
 
         // Efecto de "rebote" al llegar a la posición
         mainTimeline.to(card, {
           scale: 1.03,
-          duration: 0.2,
+          duration: 0.15,
           ease: 'power3.inOut',
-        }, 0.9 + (index * 0.08) + 1.5);
+        }, startTime + 1.2);
 
         mainTimeline.to(card, {
           scale: 1,
-          duration: 0.5,
+          duration: 0.4,
           ease: 'back.out(2)',
-        }, 0.9 + (index * 0.08) + 1.7);
+        }, startTime + 1.35);
       });
+
+      // Fase 3: Desvanecer el título DESPUÉS de que las cards ya estén apareciendo
+      mainTimeline.to(introTitleRef.current, {
+        opacity: 0,
+        y: -30,
+        duration: 0.5,
+        ease: 'power2.in',
+      }, 0.7); // Empieza mientras las primeras cards ya están apareciendo
 
     });
 
@@ -307,7 +311,7 @@ export default function AmbassadorsSection() {
   }, [isDesktop]);
 
   return (
-    <section ref={sectionRef} id="embajadores" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden min-h-screen flex items-center justify-center">
+    <section ref={sectionRef} id="ambassadors" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden min-h-screen flex items-center justify-center">
       {/* Título de introducción que se desvanece - Posicionado absolutamente */}
       {
         isDesktop && (

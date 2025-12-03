@@ -2,8 +2,8 @@
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Plus } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { Plus, ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 
 // Registrar plugin de ScrollTrigger
@@ -13,6 +13,7 @@ if (typeof window !== 'undefined') {
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -35,23 +36,33 @@ export default function HeroSection() {
     <section
       ref={heroRef}
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#1f1f1f]"
+      className="relative h-screen flex items-center overflow-hidden bg-[#203867]"
     >
-      <div className="absolute inset-0 bg-linear-to-b from-[#1f1f1f]/40 via-[#1f1f1f]/50 to-[#1f1f1f]/30 z-10"></div>
+      {/* Fondo de carga - se oculta cuando el video está listo */}
+      <div 
+        className={`absolute inset-0 bg-[#203867] transition-opacity duration-1000 ${
+          videoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      />
 
       {/* Video de fondo */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         muted
         loop
         playsInline
         autoPlay
+        preload="auto"
+        onLoadedData={() => setVideoLoaded(true)}
       >
         <source src="/videos/hero_video.mp4" type="video/mp4" />
         Tu navegador no soporta el elemento video.
       </video>
 
       {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-linear-to-b from-[#1f1f1f]/40 via-[#1f1f1f]/50 to-[#1f1f1f]/30 z-10"></div>
 
       {/* Contenido del Hero */}
       <div className="relative z-10 w-full h-full flex flex-col px-6 lg:px-16 max-w-[1600px] mx-auto">
@@ -90,7 +101,7 @@ export default function HeroSection() {
                     <p className="text-white/90 text-base font-['Plus_Jakarta_Sans'] mb-2"
                       style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                     >
-                      Marzo 2026
+                  
                     </p>
                   </div>
 
@@ -139,7 +150,7 @@ export default function HeroSection() {
                   <p className="text-white/90 text-lg font-['Plus_Jakarta_Sans'] mb-2"
                     style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                   >
-                    Mayo 2026
+                
                   </p>
                 </div>
 
@@ -157,38 +168,32 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* Indicador de scroll - flecha animada */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+        <button
+          onClick={() => {
+            const nextSection = document.getElementById('sobre-nosotros');
+            if (nextSection) {
+              nextSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }}
+          className="group flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+          aria-label="Desplazarse hacia abajo"
+        >
+          <span className="text-xs font-['Plus_Jakarta_Sans'] uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Descubre más
+          </span>
+          <div className="w-10 h-10 rounded-full border-2 border-white/50 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
+            <ChevronDown className="w-5 h-5" />
+          </div>
+        </button>
+      </div>
 
-      {/* Sección inferior - CTA para explorar eventos
-      <div className="absolute bottom-0 left-0 right-0 bg-background py-8 md:py-12 rounded-t-4xl z-20">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
-          <button
-            onClick={() => {
-              const eventsSection = document.getElementById('eventos');
-              if (eventsSection) {
-                eventsSection.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }
-            }}
-            className="group flex items-center gap-4 text-secondary hover:text-[#2E96C4] transition-colors duration-300 cursor-pointer"
-          >
-            <div className="flex items-center gap-3">
-              <Calendar className="w-6 h-6 text-[#2E96C4] group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-base md:text-lg font-semibold font-['Space_Mono'] uppercase tracking-wide">
-                Explora todos los eventos próximos
-              </h3>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-['Plus_Jakarta_Sans'] text-secondary/70 group-hover:text-[#2E96C4]/70 transition-colors duration-300">
-                Ver más
-              </span>
-              <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-            </div>
-          </button>
-        </div>
-      </div> */}
+      {/* Gradiente inferior para suavizar la transición */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white/10 to-transparent z-15 pointer-events-none"></div>
     </section>
   );
 }

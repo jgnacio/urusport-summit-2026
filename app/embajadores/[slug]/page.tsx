@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { getAmbassadorBySlug, type AmbassadorDetail } from '@/lib/ambassadors-data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
+import { ArrowLeft, Instagram, Twitter, Facebook, Youtube, Linkedin } from 'lucide-react';
 
 // Iconos para redes sociales
 const SocialIcon = ({ platform }: { platform: string }) => {
@@ -25,6 +25,8 @@ const SocialIcon = ({ platform }: { platform: string }) => {
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
         </svg>
       );
+    case 'linkedin':
+      return <Linkedin className="w-6 h-6" />;
     default:
       return null;
   }
@@ -37,6 +39,9 @@ export default function AmbassadorPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Asegurar que siempre empiece desde arriba
+    window.scrollTo(0, 0);
+    
     if (params.slug) {
       const data = getAmbassadorBySlug(params.slug as string);
       if (data) {
@@ -58,7 +63,13 @@ export default function AmbassadorPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1d3461] text-white p-4">
         <h1 className="text-4xl font-bold mb-4">Embajador no encontrado</h1>
-        <Button onClick={() => router.push('/#ambassadors')} variant="outline" className="mt-4">
+        <Button 
+          onClick={() => {
+            router.push('/#ambassadors');
+          }} 
+          variant="outline" 
+          className="mt-4"
+        >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Volver a embajadores
         </Button>
@@ -213,7 +224,7 @@ export default function AmbassadorPage() {
                 <div
                   className="border-l-4 pl-8 py-6 my-8 bg-white/5 rounded-r-xl"
                   style={{
-                    borderColor: ambassador.color,
+                    borderColor: "#F8B124",
                   }}
                 >
                   <p className="text-xl lg:text-2xl italic text-white font-light leading-relaxed">
@@ -233,7 +244,7 @@ export default function AmbassadorPage() {
                       <li key={index} className="flex items-start text-gray-200 group">
                         <span
                           className="inline-block w-3 h-3 rounded-full mt-2 mr-4 shrink-0 group-hover:scale-125 transition-transform"
-                          style={{ backgroundColor: ambassador.color }}
+                          style={{ backgroundColor: "#F8B124" }}
                         />
                         <span className="text-lg lg:text-xl leading-relaxed">
                           {achievement}
@@ -251,11 +262,13 @@ export default function AmbassadorPage() {
       {/* CTA para volver */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <Button
-          onClick={() => router.push('/#ambassadors')}
+          onClick={() => {
+            router.back();
+          }}
           size="lg"
           className="text-lg px-10 py-7 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105"
           style={{
-            backgroundColor: ambassador.color,
+            backgroundColor: "#F8B124",
             color: 'white',
           }}
         >
