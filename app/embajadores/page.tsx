@@ -97,8 +97,7 @@ export default function EmbajadoresPage() {
       <div className="container mx-auto px-4 py-12 text-center">
         <Button
           onClick={() => {
-            // Navegación sin recarga usando Next.js router
-            router.back();
+            router.push('/#ambassadors');
           }}
           size="lg"
           className="text-lg px-8 py-6 bg-[#F8B124] hover:bg-[#F8B124]/90 text-white"

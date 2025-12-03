@@ -6,7 +6,8 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const ambassador = getAmbassadorBySlug(params.slug);
+  const { slug } = await params;
+  const ambassador = getAmbassadorBySlug(slug);
 
   if (!ambassador) {
     return {

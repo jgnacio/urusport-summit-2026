@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -20,10 +21,11 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider mb-4 font-['Space_Mono']">Enlaces Rápidos</h3>
             <ul className="space-y-3 text-sm text-white/70 font-['Plus_Jakarta_Sans']">
-              <li><a href="#inicio" className="hover:text-[#F8B124] transition-colors">Inicio</a></li>
-              <li><a href="#eventos" className="hover:text-[#F8B124] transition-colors">Eventos</a></li>
-              <li><a href="#hub" className="hover:text-[#F8B124] transition-colors">El Hub</a></li>
-              <li><a href="#sponsors" className="hover:text-[#F8B124] transition-colors">Sponsors</a></li>
+              <li><Link href="/#inicio" className="hover:text-[#F8B124] transition-colors">Inicio</Link></li>
+              <li><Link href="/#about-us" className="hover:text-[#F8B124] transition-colors">Summit</Link></li>
+              <li><Link href="/#ambassadors" className="hover:text-[#F8B124] transition-colors">Embajadores</Link></li>
+              <li><Link href="/#hub" className="hover:text-[#F8B124] transition-colors">Equipo</Link></li>
+              <li><Link href="/#sponsors" className="hover:text-[#F8B124] transition-colors">Sponsors</Link></li>
             </ul>
           </div>
 

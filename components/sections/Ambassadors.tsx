@@ -253,7 +253,7 @@ export default function AmbassadorsSection() {
 
       // Fase 1: Mostrar título intro y mantenerlo un momento
       mainTimeline.from(introTitleRef.current, {
-        opacity: 0,
+        opacity: 1,
         y: 50,
         duration: 0.4,
         ease: 'power2.out',
@@ -311,7 +311,10 @@ export default function AmbassadorsSection() {
   }, [isDesktop]);
 
   return (
-    <section ref={sectionRef} id="ambassadors" className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden min-h-screen flex items-center justify-center">
+    <section ref={sectionRef} className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 overflow-hidden min-h-screen flex items-center justify-center">
+      {/* Anchor point para navegación */}
+      <div id="ambassadors" className="absolute top-0 left-0 -translate-y-20 sm:-translate-y-24 lg:-translate-y-32"></div>
+      
       {/* Título de introducción que se desvanece - Posicionado absolutamente */}
       {
         isDesktop && (
@@ -344,7 +347,7 @@ export default function AmbassadorsSection() {
         
       </div>
 
-      <div className="max-w-7xl mx-auto w-full">
+      <div  className="max-w-7xl mx-auto w-full">
       {
         !isDesktop && (
           <AnimatedText
@@ -358,7 +361,7 @@ export default function AmbassadorsSection() {
         )
       }
         {/* Bento Grid - Responsive */}
-        <div ref={gridRef} className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] gap-4 bento-grid'>
+        <div ref={gridRef}  className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] gap-4 bento-grid'>
             {/* Card 1 - col-span-6 en desktop, full en mobile */}
             <div ref={(el) => { if (el) cardsRef.current[0] = el; }} className='col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-6 h-[350px] sm:h-[400px] md:h-[45vh] rounded-[10px] overflow-hidden ambassador-card'>
               <AmbassadorCard ambassador={ambassadors[0]} />

@@ -106,12 +106,13 @@ export default function HeroSection() {
                   </div>
 
                   {/* Icono más */}
-                  <button
-                    className="self-end w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-[#2E96C4] hover:border-[#2E96C4] transition-all duration-300 group shadow-lg"
-                    aria-label="Más información"
-                  >
+                  <a
+                  href="mailto:info@urusuportsummit.uy"
+                  className="shrink-0 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center hover:bg-[#2E96C4] hover:border-[#2E96C4] transition-all duration-300 group shadow-lg"
+                  aria-label="Más información"
+                >
                     <Plus className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -169,13 +170,15 @@ export default function HeroSection() {
       </div>
 
       {/* Indicador de scroll - flecha animada */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+      <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
         <button
           onClick={() => {
             const nextSection = document.getElementById('sobre-nosotros');
             if (nextSection) {
+              // Solo usar smooth en desktop (>= 1024px)
+              const isDesktop = window.innerWidth >= 1024;
               nextSection.scrollIntoView({
-                behavior: 'smooth',
+                behavior: isDesktop ? 'smooth' : 'auto',
                 block: 'start'
               });
             }

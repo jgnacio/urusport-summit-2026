@@ -6,27 +6,23 @@ import Image from 'next/image';
 import { getAmbassadorBySlug, type AmbassadorDetail } from '@/lib/ambassadors-data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Instagram, Twitter, Facebook, Youtube, Linkedin } from 'lucide-react';
+import { FaArrowLeft, FaInstagram, FaXTwitter, FaFacebook, FaYoutube, FaLinkedin, FaTiktok } from 'react-icons/fa6';
 
 // Iconos para redes sociales
 const SocialIcon = ({ platform }: { platform: string }) => {
   switch (platform) {
     case 'instagram':
-      return <Instagram className="w-6 h-6" />;
+      return <FaInstagram className="w-6 h-6" />;
     case 'twitter':
-      return <Twitter className="w-6 h-6" />;
+      return <FaXTwitter className="w-6 h-6" />;
     case 'facebook':
-      return <Facebook className="w-6 h-6" />;
+      return <FaFacebook className="w-6 h-6" />;
     case 'youtube':
-      return <Youtube className="w-6 h-6" />;
+      return <FaYoutube className="w-6 h-6" />;
     case 'tiktok':
-      return (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-        </svg>
-      );
+      return <FaTiktok className="w-6 h-6" />;
     case 'linkedin':
-      return <Linkedin className="w-6 h-6" />;
+      return <FaLinkedin className="w-6 h-6" />;
     default:
       return null;
   }
@@ -63,14 +59,25 @@ export default function AmbassadorPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1d3461] text-white p-4">
         <h1 className="text-4xl font-bold mb-4">Embajador no encontrado</h1>
-        <Button 
+        <Button
           onClick={() => {
-            router.push('/#ambassadors');
-          }} 
-          variant="outline" 
+            // En desktop, deshabilitar temporalmente el scroll smooth
+            if (window.innerWidth >= 1024) {
+              const htmlElement = document.documentElement;
+              htmlElement.style.scrollBehavior = 'auto';
+              router.push('/#ambassadors');
+              setTimeout(() => {
+                htmlElement.style.scrollBehavior = 'smooth';
+              }, 100);
+            } else {
+              // En mobile, simplemente navegar
+              router.push('/#ambassadors');
+            }
+          }}
+          variant="outline"
           className="mt-4"
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
+          <FaArrowLeft className="w-4 h-4 mr-2" />
           Volver a embajadores
         </Button>
       </div>
@@ -263,7 +270,18 @@ export default function AmbassadorPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <Button
           onClick={() => {
-            router.back();
+            // En desktop, deshabilitar temporalmente el scroll smooth
+            if (window.innerWidth >= 1024) {
+              const htmlElement = document.documentElement;
+              htmlElement.style.scrollBehavior = 'auto';
+              router.push('/#ambassadors');
+              setTimeout(() => {
+                htmlElement.style.scrollBehavior = 'smooth';
+              }, 100);
+            } else {
+              // En mobile, simplemente navegar
+              router.push('/#ambassadors');
+            }
           }}
           size="lg"
           className="text-lg px-10 py-7 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105"

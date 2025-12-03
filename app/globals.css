@@ -142,9 +142,11 @@
     @apply transition-all duration-300 ease-in-out;
   }
   
-  /* Scroll suave */
-  html {
-    scroll-behavior: smooth;
+  /* Scroll suave solo en desktop */
+  @media (min-width: 1024px) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 

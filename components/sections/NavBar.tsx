@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +24,9 @@ export default function NavBar() {
   // Configurar enlaces según la página actual
   const navLinks = [
     { href: isAmbassadorPage ? '/#inicio' : '#inicio', label: 'Inicio' },
-    { href: isAmbassadorPage ? '/#embajadores' : '#embajadores', label: 'Embajadores' },
-    { href: isAmbassadorPage ? '/#hub' : '#hub', label: 'El Hub' },
+    { href: isAmbassadorPage ? '/#about-us' : '#about-us', label: 'Summit' },
+    { href: isAmbassadorPage ? '/#ambassadors' : '#ambassadors', label: 'Embajadores' },
+    { href: isAmbassadorPage ? '/#hub' : '#hub', label: 'Equipo' },
     { href: isAmbassadorPage ? '/#sponsors' : '#sponsors', label: 'Sponsors' },
   ];
 
@@ -44,12 +46,12 @@ export default function NavBar() {
       } max-w-7xl`}
     >
       {/* Logo - Solo visible en desktop, fuera de la barra */}
-      <a
+      <Link
             href={isAmbassadorPage ? "/#inicio" : "#inicio"}
             className="text-white inverted-colors: font-bold text-xl hidden md:block md:text-2xl font-['Space_Mono'] hover:text-[#F8B124] transition-all duration-300"
           >
             URUSport SUMMIT 2026
-          </a>
+          </Link>
       <div
         className={`relative backdrop-blur-3xl bg-black/30 border border-white/20 rounded-3xl shadow-2xl transition-all duration-500 w-[90%] md:w-auto ${
           isScrolled ? 'shadow-[0_8px_32px_rgba(0,0,0,0.3)]' : 'shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
@@ -61,7 +63,7 @@ export default function NavBar() {
         {/* Desktop & Mobile Header */}
         <div className="flex items-center justify-between px-6 md:px-8 py-4">
           {/* Logo móvil - Visible solo en mobile dentro de la barra */}
-          <a
+          <Link
             href={isAmbassadorPage ? "/#inicio" : "#inicio"}
             className="flex items-center md:hidden"
           >
@@ -70,13 +72,13 @@ export default function NavBar() {
               alt="URUSport SUMMIT 2026"
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
           
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-white hover:text-[#F8B124] transition-all duration-300 uppercase tracking-wider text-sm font-['Space_Mono'] font-medium relative group"
@@ -84,7 +86,7 @@ export default function NavBar() {
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8B124] transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             ))}
             <a href="mailto:info@urusuportsummit.uy" className="bg-secondary text-white px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl">
               Registrarse
@@ -123,7 +125,7 @@ export default function NavBar() {
         >
           <div className="px-6 pb-6 space-y-3 border-t border-white/10 pt-4">
             {navLinks.map((link, index) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={handleLinkClick}
@@ -135,7 +137,7 @@ export default function NavBar() {
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-4 w-0 h-0.5 bg-[#F8B124] transition-all duration-300 group-hover:w-[calc(100%-2rem)]"></span>
-              </a>
+              </Link>
             ))}
             <a href="mailto:info@urusuportsummit.uy" className="bg-secondary text-white w-full px-6 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider hover:from-[#F8B124] hover:to-[#F8B124] transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl inline-block text-center">
               Registrarse

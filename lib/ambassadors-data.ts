@@ -78,13 +78,13 @@ export const ambassadorsData: AmbassadorDetail[] = [
     hoverImage: SebaCoatesHover,
     color: '#203867',
     slug: 'sebastian-coates',
-    bio: 'Sebastián Coates es un futbolista profesional uruguayo que se desempeña como defensor central. Actualmente juega para el Club Nacional de Fútbol de Uruguay y es capitán de la Selección Uruguaya. Con una destacada carrera internacional que incluye pasos por Liverpool FC y Sporting de Lisboa (donde ganó múltiples títulos), Coates ha sido un pilar fundamental en la defensa celeste durante más de una década. Es reconocido por su liderazgo, juego aéreo y compromiso con la camiseta.',
-    quote: '"Defender la celeste es un orgullo que llevo en el corazón. Cada vez que me pongo esta camiseta siento la responsabilidad de representar a millones de uruguayos."',
+    bio: 'Sebastián Coates Nion es un futbolista uruguayo que juega como defensa en el Club Nacional de Football de la Primera División de Uruguay. Comenzó su carrera en Nacional llegando al club a la edad de 11 años. Debutó profesionalmente en 2009 tras ser ascendido al primer equipo, obteniendo el Campeonato Uruguayo en dos oportunidades y marcando ocho goles. Fue transferido al Liverpool F.C. en 2011. Con la selección uruguaya participó en la Copa América 2011, siendo premiado como Mejor jugador joven de la competición, donde Uruguay obtuvo su 15.ª copa continental. A pesar de haberse renovado su contrato con el Sporting C.P. automáticamente hasta 2025, en julio de 2024 anunció su salida del club para volver a Nacional.',
+    quote: 'Familia, amistad, esfuerzo, espíritu de lucha, disciplina, equipo y fútbol.',
     achievements: [
-      'Campeonato Uruguayo 2010-2011 con Nacional',
-      'Premio a Mejor Jugador Joven en la Copa América 2011',
-      'Campeonato de la Supercopa de Portugal 2021 con el Sporting de Lisboa',
-      'Capitán en la Selección Uruguaya en múltiples competiciones internacionales',
+      'Mejor Jugador - Campeonato Uruguayo 2010-11 (AUF)',
+      'Mejor Jugador Joven - Copa América 2011 (Conmebol)',
+      'Once Ideal - Primera Liga 2017 (FPF)',
+      'Capitán actual del Club Nacional de Football',
     ],
     socialMedia: [
       {
