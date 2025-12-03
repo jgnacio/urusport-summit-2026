@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Sponsor1 from '@/public/images/sponsors/sponsor1.png';
 import Sponsor2 from '@/public/images/sponsors/sponsor3.png';
+import sponsor3 from '@/public/images/sponsors/sponsor4.png';
 import UruguayanOlympicCommitteeLogo from '@/public/images/sponsors/Uruguayan_Olympic_Committee_logo.svg';
 
 export default function SponsorsSection() {
@@ -17,7 +18,7 @@ export default function SponsorsSection() {
         </div>
 
         {/* Logos de sponsors */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 place-items-center max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 place-items-center max-w-5xl mx-auto">
           <div className="relative w-full max-w-[280px] h-32 flex items-center justify-center group transition-all duration-300 hover:scale-105">
             <a href="https://www.instagram.com/couruguayo/" target="_blank" rel="noopener noreferrer">
             <Image 
@@ -39,10 +40,20 @@ export default function SponsorsSection() {
             </a>
           </div>
           <div className="relative w-full max-w-[280px] h-40 flex items-center justify-center group transition-all duration-300 hover:scale-105">
-            <a href="https://www.vernerestaurante.com.uy/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/vernerestaurante" target="_blank" rel="noopener noreferrer">
             <Image 
               src={Sponsor2} 
               alt="VERNE Restaurant" 
+              fill
+              className="object-contain grayscale brightness-0 hover:grayscale-0 hover:brightness-100 transition-all duration-300 px-4"
+              />
+              </a>
+          </div>
+          <div className="relative w-full max-w-[280px] h-40 flex items-center justify-center group transition-all duration-300 hover:scale-105">
+            <a href="https://www.gub.uy/secretaria-nacional-deporte/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src={sponsor3} 
+              alt="Secretaría Nacional de Deporte" 
               fill
               className="object-contain grayscale brightness-0 hover:grayscale-0 hover:brightness-100 transition-all duration-300 px-4"
               />

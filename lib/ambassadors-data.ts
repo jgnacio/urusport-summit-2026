@@ -79,7 +79,7 @@ export const ambassadorsData: AmbassadorDetail[] = [
     color: '#203867',
     slug: 'sebastian-coates',
     bio: 'Sebastian Coates Nion, de 35 años, es un futbolista uruguayo nacido en Montevideo, Uruguay. Actualmente en el Club Nacional de Football. Comenzó su carrera en Nacional llegando al club a la edad de 11 años. Debutó profesionalmente en 2009 tras ser ascendido al primer equipo, obteniendo el Campeonato Uruguayo en dos oportunidades y marcando ocho goles. Fue transferido al Liverpool F.C. en 2011. Con la selección uruguaya participó en la Copa América 2011, siendo premiado como Mejor jugador joven de la competición, donde Uruguay obtuvo su 15.ª copa continental. En julio de 2024 anunció su salida del club para volver a Nacional.',
-    quote: 'con trabajo, humildad y sacrificio todo llega!',
+    quote: 'Con trabajo, humildad y sacrificio todo llega!',
     achievements: [
       'Mejor Jugador - Campeonato Uruguayo 2010-11 (AUF)',
       'Mejor Jugador Joven - Copa América 2011 (Conmebol)',
