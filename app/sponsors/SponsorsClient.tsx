@@ -31,6 +31,19 @@ export default function SponsorsClient() {
           toggleActions: 'play none none none',
         },
       });
+
+      // Animación para elementos gráficos flotantes
+      gsap.to('.floating-graphic', {
+        y: 20,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut',
+        stagger: {
+          each: 0.5,
+          from: 'random'
+        }
+      });
     }, descriptionRef);
 
     return () => ctx.revert();
@@ -86,7 +99,6 @@ export default function SponsorsClient() {
           <iframe
             className="w-full h-full object-cover opacity-15 blur-[1px] scale-110 transform-gpu"
             src="https://www.youtube.com/embed/vy6FivZHRjQ?autoplay=1&mute=1&loop=1&playlist=vy6FivZHRjQ&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&rel=0"
-            frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
             title="URUSport SUMMIT 2026 Background Video"
@@ -96,8 +108,13 @@ export default function SponsorsClient() {
         </div>
 
         {/* Elementos decorativos para modernidad */}
-        <div className="absolute inset-0 opacity-10 z-10">
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary rounded-full blur-md"></div>
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="absolute bottom-1/4 left-1/10 w-32 h-32 opacity-20 floating-graphic">
+            <img src="/images/graphics/estrella fina blanca.png" alt="" className="w-full h-full object-contain animate-spin" style={{ animationDuration: '90s' }} />
+          </div>
+          <div className="absolute top-1/4 right-1/10 w-40 h-40 opacity-15 floating-graphic" style={{ animationDelay: '1s' }}>
+            <img src="/images/graphics/circulos blanco.png" alt="" className="w-full h-full object-contain" />
+          </div>
         </div>
 
         <div className="relative max-w-5xl mx-auto text-center z-20 py-20">
@@ -166,49 +183,28 @@ export default function SponsorsClient() {
             </div>
           </div>
         </div>
-                {/* Logo sol inferior derecho */}
-        <div className="absolute bottom-10 -right-48 opacity-70 hover:opacity-90 transition-opacity duration-500">
-          <img
-            src="/images/logo_sun.svg"
-            className="w-100 h-100 object-contain animate-spin"
-            style={{ animationDuration: '90s' }}
-          />
-        </div>
+     
       </section>
 
       {/* Beneficios Section */}
       <section className="py-40 px-6 bg-linear-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 relative overflow-hidden">
+        {/* Gráficos de fondo para Beneficios */}
+        <div className="absolute top-1/2 left-0 w-full opacity-[0.03] pointer-events-none -translate-y-1/2">
+          <img src="/images/graphics/Lineas.png" alt="" className="w-full h-auto"/>
+        </div>
+        <div className="absolute top-20 right-10 w-32 h-32 floating-graphic">
+          <img src="/images/graphics/Sticker.png" alt="" className="w-full h-full object-contain rotate-12" />
+        </div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 floating-graphic">
+          <img src="/images/graphics/Circulito.png" alt="" className="w-full h-full object-contain rotate-12" />
+        </div>
         {/* Elementos decorativos más prominentes */}
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-linear-to-br from-blue-200/30 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-linear-to-tl from-indigo-200/30 to-transparent rounded-full translate-x-1/2 translate-y-1/2"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-linear-to-r from-yellow-100/20 to-orange-100/20 rounded-full blur-3xl"></div>
 
 
-        {/* Líneas conectivas dinámicas entre cards */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Línea curva superior */}
-          <svg className="absolute top-1/4 left-0 w-full h-32 opacity-20" viewBox="0 0 1200 128">
-            <path
-              d="M0,64 Q300,20 600,64 T1200,64"
-              stroke="#203867"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-            />
-          </svg>
-
-          {/* Línea curva inferior */}
-          <svg className="absolute bottom-1/4 left-0 w-full h-32 opacity-20" viewBox="0 0 1200 128">
-            <path
-              d="M0,64 Q300,108 600,64 T1200,64"
-              stroke="#f4c542"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-              style={{ animationDelay: '1s' }}
-            />
-          </svg>
-        </div>
+       
 
         {/* Elementos flotantes geométricos representando movimiento deportivo */}
         <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-[#203867]/10 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
@@ -253,16 +249,6 @@ export default function SponsorsClient() {
 
       
 
-        {/* Ondas dinámicas en el fondo */}
-        <div className="absolute bottom-0 left-0 w-full h-32 opacity-5 pointer-events-none">
-          <svg viewBox="0 0 1200 128" className="w-full h-full">
-            <path
-              d="M0,64 Q150,32 300,64 T600,64 T900,64 T1200,64 L1200,128 L0,128 Z"
-              fill="#203867"
-              className="animate-pulse"
-            />
-          </svg>
-        </div>
 
         {/* Elementos flotantes adicionales */}
         <div className="absolute top-1/4 right-1/6 w-4 h-4 bg-[#f4c542]/20 rounded-full animate-ping opacity-40" style={{ animationDuration: '2s' }}></div>
@@ -342,9 +328,14 @@ export default function SponsorsClient() {
       </section>
 
       {/* Impacto en el Ecosistema Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="relative py-24 px-6 bg-white overflow-hidden">
+
+        <div className="relative max-w-7xl mx-auto ">
+          
+          <div className="text-center mb-16 relative">
+                       {/* Logo sol inferior derecho */}
+        
+         
             <AnimatedText
               text="Impacto sostenible en todo el ecosistema"
               as="h2"
@@ -428,7 +419,11 @@ export default function SponsorsClient() {
                 color: 'from-teal-500 to-teal-600'
               }
             ].map((stakeholder, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 transform-gpu group">
+              <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 transform-gpu group relative overflow-hidden">
+                {/* Decorativo interno */}
+                <div className="absolute -top-4 -right-4 w-12 h-12 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                  <img src="/images/graphics/mas amarillo.png" alt="" className="w-full h-full" />
+                </div>
                 <div className={`w-16 h-16 bg-linear-to-br ${stakeholder.color} rounded-2xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300`}>
                   <stakeholder.icon className="w-8 h-8" />
                 </div>
@@ -447,8 +442,21 @@ export default function SponsorsClient() {
             ))}
           </div>
 
+          {/* Línea decorativa */}
+          <div
+          style={{
+            width: '100vw',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+          >
+            
+          </div>
+
+
           {/* Estadísticas de impacto */}
-          <div className="mt-20 bg-linear-to-r from-[#203867] to-[#1a2d5a] rounded-3xl p-12 text-white">
+          {/* <div className="mt-20 bg-linear-to-r from-[#203867] to-[#1a2d5a] rounded-3xl p-12 text-white relative overflow-hidden">
+        
             <div className="text-center mb-12">
               <h3 className="text-2xl lg:text-3xl font-bold mb-4 font-['Space_Mono']">
                 Impacto medible, crecimiento sostenible
@@ -478,72 +486,43 @@ export default function SponsorsClient() {
                 </div>
               ))}
             </div>
+            
           </div>
+           */}
         </div>
+         
       </section>
 
       {/* Por qué ser Sponsor Section */}
       <section className="py-24 px-6 relative overflow-hidden">
         {/* Elementos decorativos para sensación de movimiento */}
-        <div className="absolute inset-0 opacity-10 z-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#f4c542] rounded-full blur-xl"></div>
-          <div className="absolute bottom-20 right-10 w-24 h-24 bg-green-400 rounded-full blur-lg"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-400 rounded-full blur-md"></div>
-        </div>
+        {/* <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-20 right-10 w-48 h-48 opacity-10 floating-graphic">
+             <img src="/images/graphics/estrella fina blanca.png" alt="" className="w-full h-full object-contain filter invert" />
+          </div>
+          <div className="absolute bottom-20 left-10 w-40 h-40 opacity-10 floating-graphic" style={{ animationDelay: '1.5s' }}>
+             <img src="/images/graphics/estrella fina blanca.png" alt="" className="w-full h-full object-contain filter invert" />
+          </div>
+          <div className="absolute top-1/2 left-1/4 w-32 h-32 opacity-5 floating-graphic">
+             <img src="/images/graphics/Igual.png" alt="" className="w-full h-full object-contain" />
+          </div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary rounded-full blur-md opacity-20"></div>
+          <div className="absolute top-1/3 right-1/5 w-24 h-24 opacity-20 floating-graphic rotate-[-15deg]" style={{ animationDelay: '0.7s' }}>
+            <img src="/images/graphics/estrella fina blanca.png" alt="" className="w-full h-full object-contain" />
+          </div>
+        </div> */}
 
-        {/* Líneas conectivas dinámicas */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          {/* Línea curva superior */}
-          <svg className="absolute top-1/4 left-0 w-full h-32 opacity-20" viewBox="0 0 1200 128">
-            <path
-              d="M0,64 Q300,20 600,64 T1200,64"
-              stroke="#203867"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-            />
-          </svg>
-
-          {/* Línea curva inferior */}
-          <svg className="absolute bottom-1/4 left-0 w-full h-32 opacity-20" viewBox="0 0 1200 128">
-            <path
-              d="M0,64 Q300,108 600,64 T1200,64"
-              stroke="#f4c542"
-              strokeWidth="2"
-              fill="none"
-              className="animate-pulse"
-              style={{ animationDelay: '1s' }}
-            />
-          </svg>
-        </div>
 
         {/* Elementos flotantes geométricos representando movimiento deportivo */}
         <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-[#203867]/10 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
         <div className="absolute top-2/3 right-1/4 w-12 h-12 bg-[#f4c542]/20 rounded-full animate-bounce opacity-40" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
         <div className="absolute bottom-1/3 left-1/3 w-8 h-8 bg-[#203867]/15 rounded-full animate-bounce opacity-25" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
 
-        {/* Ondas dinámicas en el fondo */}
-        <div className="absolute bottom-0 left-0 w-full h-32 opacity-5 pointer-events-none z-0">
-          <svg viewBox="0 0 1200 128" className="w-full h-full">
-            <path
-              d="M0,64 Q150,32 300,64 T600,64 T900,64 T1200,64 L1200,128 L0,128 Z"
-              fill="#203867"
-              className="animate-pulse"
-            />
-          </svg>
-        </div>
 
         {/* Elementos flotantes adicionales */}
         <div className="absolute top-1/4 right-1/6 w-4 h-4 bg-[#f4c542]/20 rounded-full animate-ping opacity-40" style={{ animationDuration: '2s' }}></div>
         <div className="absolute bottom-1/4 left-1/6 w-3 h-3 bg-[#203867]/15 rounded-full animate-ping opacity-30" style={{ animationDuration: '2.5s', animationDelay: '1s' }}></div>
 
-        {/* Patrón geométrico sutil */}
-        <div className="absolute top-16 right-1/3 opacity-5 z-0">
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <circle cx="30" cy="30" r="25" stroke="#203867" strokeWidth="1" fill="none" className="animate-spin" style={{ animationDuration: '20s' }} />
-            <circle cx="30" cy="30" r="15" stroke="#f4c542" strokeWidth="1" fill="none" className="animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
-          </svg>
-        </div>
 
         {/* Elementos de energía/conexión */}
         <div className="hidden lg:block absolute top-1/3 left-1/5 w-px h-16 bg-linear-to-b from-transparent via-[#203867]/20 to-transparent animate-pulse z-0"></div>
@@ -561,8 +540,16 @@ export default function SponsorsClient() {
               triggerStart="top 85%"
             />
           </div>
-
+          <div className="absolute top-48 -left-50 opacity-70 hover:opacity-90 transition-opacity duration-500">
+          <img
+            src="/images/logo_sun.svg"
+            className="w-100 h-100 object-contain animate-spin"
+            style={{ animationDuration: '90s' }}
+          />
+        </div>
+       
           <div className="bg-linear-to-r from-[#203867] to-[#1a2d5a] text-white p-12 rounded-2xl relative overflow-hidden">
+            
             {/* Elementos decorativos dentro del bloque de texto */}
             <div className="absolute top-4 right-4 w-8 h-8 bg-[#f4c542]/20 rounded-full animate-pulse opacity-60"></div>
             <div className="absolute bottom-4 left-4 w-6 h-6 bg-white/10 rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s' }}></div>
@@ -582,8 +569,11 @@ export default function SponsorsClient() {
       </section>
 
       {/* Paquetes de Sponsorship */}
-      <section className="py-24 px-6 bg-linear-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto">
+      {/* <section className="py-24 px-6 bg-linear-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <img src="/images/graphics/Lineas.png" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <AnimatedText
               text="Paquetes de Sponsorship"
@@ -606,11 +596,19 @@ export default function SponsorsClient() {
                 className={`bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 transform-gpu group ${pkg.featured ? 'border-2 border-[#f4c542] relative hover:shadow-[#f4c542]/30' : 'hover:shadow-gray-300/50'}`}
               >
                 {pkg.featured && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-[#f4c542] text-[#203867] px-4 py-2 rounded-full font-bold text-sm uppercase">
-                      {pkg.name}
-                    </span>
-                  </div>
+                  <>
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <span className="bg-[#f4c542] text-[#203867] px-4 py-2 rounded-full font-bold text-sm uppercase">
+                        {pkg.name}
+                      </span>
+                    </div>
+                    <div className="absolute -top-8 -right-8 w-20 h-20 opacity-30 floating-graphic">
+                      <img src="/images/graphics/Sticker.png" alt="" className="w-full h-full object-contain" />
+                    </div>
+                     <div className="absolute top-1/2 -left-6 w-12 h-12 opacity-20 -rotate-90">
+                      <img src="/images/graphics/Flecha.png" alt="" className="w-full h-full object-contain" />
+                    </div>
+                  </>
                 )}
                 <div className={pkg.featured ? 'mt-6' : ''}>
                   <h3 className="text-[#203867] text-2xl font-bold mb-6 font-['Space_Mono'] text-center">
@@ -635,10 +633,9 @@ export default function SponsorsClient() {
             ))}
           </div>
 
-          {/* Otros Sponsors - Usando el componente existente */}
           <SponsorsSection />
         </div>
-      </section>
+      </section> */}
 
       {/* Llamada a la Acción Final */}
       <section id="contacto" className="relative py-32 px-6 bg-linear-to-br from-[#203867] via-[#2a4a7a] to-[#1a2d5a] overflow-hidden">
@@ -652,7 +649,7 @@ export default function SponsorsClient() {
         <div className="relative max-w-5xl mx-auto text-center z-10">
           <div className="mb-8">
             <span className="inline-block bg-[#f4c542]/20 text-[#f4c542] px-6 py-3 rounded-full text-sm font-bold border border-[#f4c542]/30">
-              🌱 JUNTOS CONSTRUYENDO EL FUTURO SOSTENIBLE DEL DEPORTE URUGUAYO
+            JUNTOS CONSTRUYENDO EL FUTURO SOSTENIBLE DEL DEPORTE URUGUAYO
             </span>
           </div>
 
@@ -683,9 +680,12 @@ export default function SponsorsClient() {
             </p>
           </div>
 
-            <div className="bg-white/95 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/20">
-            <div className="mb-6">
-              <Handshake className="w-20 h-20 mx-auto" />
+          <div className="mb-12 relative flex justify-center">
+            <div className="bg-white/95 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/20 w-full">
+            <div className="mb-6 relative">
+              <Handshake className="w-20 h-20 mx-auto opacity-50" color='#203867' />
+            
+              
             </div>
             <h3 className="text-[#203867] text-2xl lg:text-3xl font-bold mb-8 font-['Space_Mono']">
               {sponsorsPageContent.finalCTA.cta}
@@ -703,7 +703,6 @@ export default function SponsorsClient() {
                 <div className="text-[#203867] font-bold font-['Plus_Jakarta_Sans'] text-lg">
                   {sponsorsPageContent.finalCTA.email}
                 </div>
-                <div className="text-gray-600 text-sm">Respuesta en 24 horas</div>
               </div>
             </div>
 
@@ -728,6 +727,7 @@ export default function SponsorsClient() {
             </div>
           </div>
         </div>
+      </div>
       </section>
     </main>
   );

@@ -18,16 +18,16 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Determinar si estamos en una página de embajador
-  const isAmbassadorPage = pathname.startsWith('/embajadores/');
+  // Determinar si estamos en la página de inicio
+  const isHomePage = pathname === '/';
 
   // Configurar enlaces según la página actual
   const navLinks = [
-    { href: isAmbassadorPage ? '/#inicio' : '#inicio', label: 'Inicio' },
-    { href: isAmbassadorPage ? '/#about-us' : '#about-us', label: 'Summit' },
-    { href: isAmbassadorPage ? '/#ambassadors' : '#ambassadors', label: 'Embajadores' },
-    { href: isAmbassadorPage ? '/#hub' : '#hub', label: 'Equipo' },
-    { href: isAmbassadorPage ? '/#sponsors' : '#sponsors', label: 'Sponsors' },
+    { href: isHomePage ? '#inicio' : '/#inicio', label: 'Inicio' },
+    { href: isHomePage ? '#about-us' : '/#about-us', label: 'Summit' },
+    { href: isHomePage ? '#ambassadors' : '/#ambassadors', label: 'Embajadores' },
+    { href: isHomePage ? '#hub' : '/#hub', label: 'Equipo' },
+    { href: '/sponsors', label: 'Sponsors' },
   ];
 
   const handleLinkClick = () => {
@@ -47,7 +47,7 @@ export default function NavBar() {
     >
       {/* Logo - Solo visible en desktop, fuera de la barra */}
       <Link
-            href={isAmbassadorPage ? "/#inicio" : "#inicio"}
+            href={isHomePage ? "#inicio" : "/#inicio"}
             className="text-white inverted-colors: font-bold text-xl hidden md:block md:text-2xl font-['Space_Mono'] hover:text-[#F8B124] transition-all duration-300"
           >
             URUSport SUMMIT 2026
@@ -64,7 +64,7 @@ export default function NavBar() {
         <div className="flex items-center justify-between px-6 md:px-8 py-4">
           {/* Logo móvil - Visible solo en mobile dentro de la barra */}
           <Link
-            href={isAmbassadorPage ? "/#inicio" : "#inicio"}
+            href={isHomePage ? "#inicio" : "/#inicio"}
             className="flex items-center md:hidden"
           >
             <img

@@ -120,7 +120,7 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
     title: 'Oportunidades únicas para el crecimiento sostenible',
     items: [
       {
-        image: '/images/MarcosSarraute1.webp',
+        image: '/images/prensa_comite.jpg',
         title: 'CRECIMIENTO ECONÓMICO',
         description: 'Potencia el desarrollo económico del sector deportivo uruguayo a través de alianzas estratégicas que generan oportunidades para múltiples actores.'
       },
@@ -155,9 +155,7 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
   },
   finalCTA: {
     title: 'Seamos parte del crecimiento sostenible del deporte uruguayo.',
-    description: `**URUSport SUMMIT 2026 crea oportunidades que otros no ofrecen.** Nuestras alianzas no solo benefician individualmente: **potencian el crecimiento económico, académico y deportivo de todo el país.**
-
-Si representás a una **empresa**, **club**, **federación**, **institución educativa**, **ente estatal** o eres parte del **público deportivo** (dirigente, estudiante, entrenador, deportista o aficionado), este es tu espacio para ser parte del cambio.
+    description: `Si representás a una **empresa**, **club**, **federación**, **institución educativa**, **ente estatal** o eres parte del **público deportivo** (dirigente, estudiante, entrenador, deportista o aficionado), este es tu espacio para ser parte del cambio.
 
 **Juntos construiremos un ecosistema deportivo más fuerte, inclusivo y competitivo a nivel regional.**`,
     cta: 'Contactanos y seamos parte del crecimiento sostenible del deporte uruguayo.',
