@@ -371,7 +371,8 @@ export default function SponsorsClient() {
                   'Recursos adicionales para desarrollo deportivo',
                   'Conocimientos y metodologías innovadoras',
                   'Mayor visibilidad y reconocimiento',
-                  'Oportunidades de colaboración institucional'
+                  'Oportunidades de colaboración institucional',
+                  'Potenciales candidatos a ofertas laborales'
                 ],
                 color: 'from-green-500 to-green-600'
               },
@@ -410,9 +411,10 @@ export default function SponsorsClient() {
               },
               {
                 icon: Star,
-                title: 'Para Deportistas y Aficionados',
+                title: 'Para Deportistas, Estudiantes y Aficionados',
                 benefits: [
                   'Mayor calidad en entrenamientos y competiciones',
+                  'Becas y programas de formación especializada',
                   'Oportunidades de desarrollo deportivo',
                   'Acceso a recursos y tecnología deportiva',
                   'Participación en comunidad deportiva inclusiva'
