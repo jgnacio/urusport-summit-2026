@@ -13,7 +13,7 @@ export default function Footer() {
               URUSport SUMMIT 2026
             </div>
             <p className="text-white/70 text-sm leading-relaxed font-['Plus_Jakarta_Sans']">
-              Hub Regional Deportivo que conecta a todos los actores del ecosistema deportivo uruguayo.
+              Hub Regional Deportivo que conecta a todos los actores del ecosistema deportivo Uruguayo.
             </p>
           </div>
 

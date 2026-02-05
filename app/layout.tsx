@@ -20,7 +20,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "URUSport SUMMIT 2026 - Hub Regional Deportivo",
-  description: "El principal evento del ecosistema deportivo uruguayo que reúne y conecta el talento con las oportunidades a través del networking y la formación. Ahora sos parte del cambio.",
+  description: "El principal evento del ecosistema deportivo Uruguayo que reúne y conecta el talento con las oportunidades a través del networking y la formación. Ahora sos parte del cambio.",
 };
 
 export default function RootLayout({

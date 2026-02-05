@@ -7,6 +7,7 @@ import AnimatedText from '@/components/ui/AnimatedText';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 export default function SponsorsClient() {
   const descriptionRef = useRef<HTMLDivElement>(null);
@@ -346,7 +347,7 @@ export default function SponsorsClient() {
               triggerStart="top 85%"
             />
             <p className="text-gray-600 text-lg font-['Plus_Jakarta_Sans'] max-w-3xl mx-auto">
-              Nuestras alianzas crean oportunidades que benefician a todos los actores del deporte uruguayo
+              Nuestras alianzas crean oportunidades que benefician a todos los actores del deporte Uruguayo
             </p>
           </div>
 
@@ -639,6 +640,15 @@ export default function SponsorsClient() {
 
       {/* Llamada a la Acción Final */}
       <section id="contacto" className="relative py-32 px-6 bg-linear-to-br from-[#203867] via-[#2a4a7a] to-[#1a2d5a] overflow-hidden">
+                     <div className="absolute inset-0 z-0 pointer-events-none">
+                <Image
+                  src="/images/team.jpg"
+                  alt="Team"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-5"
+                />
+                <div className="absolute inset-0"></div>
+              </div>
         {/* Elementos decorativos */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 w-40 h-40 border-2 border-[#f4c542] rounded-full"></div>
@@ -679,6 +689,7 @@ export default function SponsorsClient() {
               ))}
             </p>
           </div>
+{/* Background Image */}
 
           <div className="mb-12 relative flex justify-center">
             <div className="bg-white/95 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/20 w-full">

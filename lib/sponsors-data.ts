@@ -120,19 +120,19 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
     title: 'Oportunidades únicas para el crecimiento sostenible',
     items: [
       {
-        image: '/images/prensa_comite.jpg',
+        image: '/images/IA/crecimiento_economico.png',
         title: 'CRECIMIENTO ECONÓMICO',
-        description: 'Potencia el desarrollo económico del sector deportivo uruguayo a través de alianzas estratégicas que generan oportunidades para múltiples actores.'
+        description: 'Potencia el desarrollo económico del sector deportivo Uruguayo a través de alianzas estratégicas que generan oportunidades para múltiples actores.'
       },
       {
-        image: '/images/SebastianOttonello2.jpeg',
+        image: '/images/IA/impacto_academico.png',
         title: 'IMPACTO ACADÉMICO',
         description: 'Contribuye al desarrollo académico del deporte conectando instituciones educativas con el sector profesional y empresarial.'
       },
       {
-        image: '/images/PatriciaPita2.webp',
+        image: '/images/IA/desarrollo_deportivo.png',
         title: 'DESARROLLO DEPORTIVO',
-        description: 'Impulsa el crecimiento competitivo del deporte uruguayo, fortaleciendo clubes, federaciones y el talento deportivo nacional.'
+        description: 'Impulsa el crecimiento competitivo del deporte Uruguayo, fortaleciendo clubes, federaciones y el talento deportivo nacional.'
       }
     ]
   },
@@ -154,11 +154,11 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
     description: 'Extra de patrocinio - Contactanos para crear un paquete personalizado según tus necesidades.'
   },
   finalCTA: {
-    title: 'Seamos parte del crecimiento sostenible del deporte uruguayo.',
+    title: 'Seamos parte del crecimiento sostenible del deporte Uruguayo.',
     description: `Si representás a una **empresa**, **club**, **federación**, **institución educativa**, **ente estatal** o eres parte del **público deportivo** (dirigente, estudiante, entrenador, deportista o aficionado), este es tu espacio para ser parte del cambio.
 
 **Juntos construiremos un ecosistema deportivo más fuerte, inclusivo y competitivo a nivel regional.**`,
-    cta: 'Contactanos y seamos parte del crecimiento sostenible del deporte uruguayo.',
+    cta: 'Contactanos y seamos parte del crecimiento sostenible del deporte Uruguayo.',
     email: 'info@urusportsummit.com'
   }
 };

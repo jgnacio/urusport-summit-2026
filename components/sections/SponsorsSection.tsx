@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Sponsor1 from '@/public/images/sponsors/sponsor1.png';
 import Sponsor2 from '@/public/images/sponsors/sponsor3.png';
 import sponsor3 from '@/public/images/sponsors/sponsor4.png';
 import UruguayanOlympicCommitteeLogo from '@/public/images/sponsors/Uruguayan_Olympic_Committee_logo.svg';
 import b3b from '@/public/images/sponsors/b3b.png';
+import { ArrowRight } from 'lucide-react';
 
 export default function SponsorsSection() {
   return (
@@ -70,6 +72,16 @@ export default function SponsorsSection() {
               />
               </a>
           </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-16 text-center">
+          <Link 
+            href="/sponsors" 
+            className="inline-flex items-center gap-2 bg-[#203867] text-white px-10 py-4 rounded-2xl text-sm font-bold uppercase tracking-wider hover:bg-[#203867]/90 transition-all duration-300 shadow-lg font-['Space_Mono'] hover:scale-105 hover:shadow-xl"
+          >
+            Sé parte del cambio <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>
