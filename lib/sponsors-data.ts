@@ -117,7 +117,7 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
     cta: 'Sumate al movimiento'
   },
   benefits: {
-    title: 'Oportunidades únicas para el crecimiento sostenible',
+    title: 'OPORTUNIDADES ÚNICAS PARA EL CRECIMIENTO SOSTENIBLE',
     items: [
       {
         image: '/images/IA/crecimiento_economico.png',
@@ -137,7 +137,7 @@ Tu marca no solo estará presente: **liderará el cambio** hacia un deporte más
     ]
   },
   whySponsor: {
-    title: 'Alianzas que multiplican el impacto en todo el ecosistema.',
+    title: 'ALIANZAS QUE MULTIPLICAN EL IMPACTO EN TODO EL ECOSISTEMA.',
     description: `URUSport SUMMIT 2026 crea oportunidades que otros eventos no ofrecen: **conecta empresas con clubes, federaciones con instituciones educativas, y entes estatales con el público deportivo** para generar crecimiento sostenible.
 
 **Empresas** encuentran nuevos mercados y alianzas estratégicas.

@@ -362,7 +362,7 @@ export default function SponsorsClient() {
                   'Posicionamiento como líder en responsabilidad social',
                   'Acceso a talento deportivo calificado'
                 ],
-                color: 'from-blue-500 to-blue-600'
+                color: 'from-[#203867] to-[#203867]'
               },
               {
                 icon: Trophy,
@@ -374,7 +374,7 @@ export default function SponsorsClient() {
                   'Oportunidades de colaboración institucional',
                   'Potenciales candidatos a ofertas laborales'
                 ],
-                color: 'from-green-500 to-green-600'
+                color: 'from-[#203867] to-[#203867]'
               },
               {
                 icon: GraduationCap,
@@ -385,7 +385,7 @@ export default function SponsorsClient() {
                   'Desarrollo de programas deportivos académicos',
                   'Acceso a prácticas profesionales para estudiantes'
                 ],
-                color: 'from-purple-500 to-purple-600'
+                color: 'from-[#203867] to-[#203867]'
               },
               {
                 icon: Building2,
@@ -396,7 +396,7 @@ export default function SponsorsClient() {
                   'Desarrollo de políticas públicas efectivas',
                   'Amplificación de alcance e impacto'
                 ],
-                color: 'from-orange-500 to-orange-600'
+                color: 'from-[#203867] to-[#203867]'
               },
               {
                 icon: Users,
@@ -407,7 +407,7 @@ export default function SponsorsClient() {
                   'Desarrollo de carrera y crecimiento personal',
                   'Participación en proyectos de alto impacto'
                 ],
-                color: 'from-red-500 to-red-600'
+                color: 'from-[#203867] to-[#203867]'
               },
               {
                 icon: Star,
@@ -419,7 +419,7 @@ export default function SponsorsClient() {
                   'Acceso a recursos y tecnología deportiva',
                   'Participación en comunidad deportiva inclusiva'
                 ],
-                color: 'from-teal-500 to-teal-600'
+                color: 'from-[#203867] to-[#203867]'
               }
             ].map((stakeholder, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 transform-gpu group relative overflow-hidden">
@@ -677,7 +677,7 @@ export default function SponsorsClient() {
             />
           </div>
 
-          <div className="max-w-4xl mx-auto mb-12">
+          <div className="max-w-3xl mx-auto mb-12">
             <p className="text-white/90 text-lg lg:text-xl font-['Plus_Jakarta_Sans'] leading-relaxed">
               {sponsorsPageContent.finalCTA.description.split('\n\n').map((paragraph, index) => (
                 <span key={index}>
