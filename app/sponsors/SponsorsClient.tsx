@@ -118,7 +118,7 @@ export default function SponsorsClient() {
           </div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto text-center z-20 py-20">
+        <div className="relative max-w-5xl mx-auto text-center z-20 py-32">
           <div className="mb-6">
             <span className="flex items-center gap-2 w-fit mx-auto bg-[#f4c542]/20 text-[#f4c542] px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-[#f4c542]/30">
             <ArrowUpRight/>  CRECIMIENTO SOSTENIBLE • INNOVACIÓN • IMPACTO
